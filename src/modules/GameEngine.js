@@ -1,6 +1,6 @@
 import sample from 'lodash.sample';
 import find from 'lodash.find';
-import isEqual from 'lodash.isEqual';
+import isEqual from 'lodash.isequal';
 
 import data from '../config/data';
 
@@ -58,7 +58,7 @@ function updateOrder(currentOrders, timer) {
     return currentOrders.map(item => item.served ? createOrder(timer) : item);
 }
 
-function createGame({ timer, numberOfOrders }) {
+export function createGame({ timer, numberOfOrders }) {
 
     const currentOrders = createOrders(numberOfOrders, timer);
     const servedOrders = [];
