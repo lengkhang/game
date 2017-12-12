@@ -1,15 +1,26 @@
-import React from 'react'
-import { push } from 'react-router-redux'
+import React, { Component } from 'react'
+// import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import styles from './game.scss';
+import './game.css';
 
-const Home = props => (
-  <div>
-    <h1>Game</h1>
-    <img src="/images/contend.png" alt="contend" className={styles.icon}/>
-  </div>
-)
+class Game extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Game</h1>
+        <img className="icon" src={require("../static/images/icon/contend.png")} alt="contend" />
+      </div>
+    );
+  }
+}
+
+// const Home = props => (
+//   <div>
+//     <h1>Game</h1>
+//     <img src={require("../static/images/icon/contend.png")} className={styles.icon} />
+//   </div>
+// )
 
 const mapStateToProps = state => ({
   count: state.counter.count,
@@ -28,4 +39,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(Game)
