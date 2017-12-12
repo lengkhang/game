@@ -61,7 +61,13 @@ function updateOrder(currentOrders, timer) {
 function decreaseCustomerSatisfaction(satisfactionLevel) {
     const minSatisfactionLevel = CUSTOMER_SATISFACTION.ANGRY;
 
-    return (satisfactionLevel > minSatisfactionLevel) ? parseInt(satisfactionLevel)-1 : satisfactionLevel;
+    return (satisfactionLevel > minSatisfactionLevel) ? parseInt(satisfactionLevel) - 1 : satisfactionLevel;
+}
+
+function increaseCustomerSatisfaction(satisfactionLevel) {
+    const maxSatisfactionLevel = CUSTOMER_SATISFACTION.HAPPY;
+
+    return (satisfactionLevel < maxSatisfactionLevel) ? parseInt(satisfactionLevel) + 1 : satisfactionLevel;
 }
 
 export function updateCustomerOrders(currentOrders, currentTime) {
