@@ -77,7 +77,7 @@ export function createGame({ timer, numberOfOrders }) {
         currentOrders,
         perpingOrder,
         timer,
-        score,
+        score
     };
 }
 
