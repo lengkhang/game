@@ -9,7 +9,7 @@ function getRandomMenuItem() {
 }
 
 function getRandomCutomer() {
-    return sample(data.customer);;
+    return sample(data.customer);
 }
 
 function getIngredients() {
@@ -32,14 +32,14 @@ function createOrder(timeCreated) {
 function createOrders(count, timeCreated) {
     let orders = [];
 
-    for(let i = 0; i < count; i++) {
-        orders.push(createOrder, timeCreated)
+    for (let i = 0; i < count; i++) {
+        orders.push(createOrder(timeCreated))
     }
 
     return orders;
 }
 
-function matchOrder (ingredients, orders) {
+function matchOrder(ingredients, orders) {
     return orders.find(item => {
         return isEqual(item.menuItem, ingredients);
     });
@@ -58,8 +58,24 @@ function updateOrder(currentOrders, timer) {
     return currentOrders.map(item => item.served ? createOrder(timer) : item);
 }
 
-export function createGame({ timer, numberOfOrders }) {
+export function updateCustomerOrders(currentOrders, currentTime) {
+    return currentOrders.map(item => {
+        const customerSatisfaction = item.customer.satisfaction;
+        const customerStartTime = item.timeCreated;
 
+        let value = item;
+        if (customerStartTime - currentTime >= 5) {
+            const customerData = { ...item.customer, satisfaction: 'happy' };
+            value = { ...item, customer: customerData }
+
+            console.log('==> value:', value)
+        }
+
+        return value;
+    });
+}
+
+export function createGame({ timer, numberOfOrders }) {
     const currentOrders = createOrders(numberOfOrders, timer);
     const servedOrders = [];
     const perpingOrder = {};

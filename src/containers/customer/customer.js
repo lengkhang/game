@@ -6,23 +6,26 @@ import './customer.css';
 
 class Customer extends Component {
   render() {
+    const { currentOrders } = this.props;
+
     return (
       <div className="customerContainer">
-        <div className="empty-seat"/>
-        <div className="empty-seat"/>
-        <div className="empty-seat"/>
-        <div className="empty-seat"/>
+        {
+          currentOrders.map((order, index) => {
+            const satisfaction = order.customer.satisfaction;
+            const avatars = order.customer.avatars;
+            const avatarState = avatars[satisfaction];
 
-        {/* <img className="icon" src={require("../../static/images/icon/contend.png")} alt="contend" /> */}
+            return (<img key={index} className="icon" src={avatarState} alt={satisfaction} />)
+          })
+        }
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  count: state.counter.count,
-  // isIncrementing: state.counter.isIncrementing,
-  // isDecrementing: state.counter.isDecrementing
+  currentOrders: state.game.currentOrders
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

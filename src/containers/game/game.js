@@ -8,18 +8,13 @@ import Header from '../header/header';
 import Customer from '../customer/customer';
 import Controller from '../controller/controller';
 
-import {createGame} from '../../modules/GameEngine';
-
 class Game extends Component {
   constructor() {
     super();
-
-    this.gameEngine = createGame({timer: 300, numberOfOrders: 4});
   }
 
   render() {
-    console.log('==> this.gameEngine:', this.gameEngine);
-    
+  
     return (
       <div>
         <h1>Game</h1>

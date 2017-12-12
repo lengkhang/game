@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import './timer.css';
 
-export default class Timer extends Component {
+import {tickAction} from '../../../../modules/game';
+
+class Timer extends Component {
   constructor(props) {
     super(props);
 
@@ -13,8 +16,10 @@ export default class Timer extends Component {
 
   tick() {
     const { secondsRemaining } = this.state;
+    const { tickAction } = this.props;
 
     this.setState({ secondsRemaining: secondsRemaining - 1 });
+    tickAction(this.state.secondsRemaining);
 
     if (this.state.secondsRemaining <= 0) {
       clearInterval(this.interval);
@@ -47,3 +52,22 @@ export default class Timer extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  initialCount: state.game.timer,
+  // isIncrementing: state.counter.isIncrementing,
+  // isDecrementing: state.counter.isDecrementing
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  tickAction
+  // incrementAsync,
+  // decrement,
+  // decrementAsync,
+  // changePage: () => push('/about-us')
+}, dispatch)
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Timer)
