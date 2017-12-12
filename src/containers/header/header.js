@@ -4,11 +4,14 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import './header.css';
 
+import Timer from './components/timer/timer';
+
 class Header extends Component {
   render() {
     return (
       <div className="container">
         Score:
+        <Timer initialCount={100} />
       </div>
     );
   }

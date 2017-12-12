@@ -1,3 +1,15 @@
 .customerContainer {
   border: 1px solid #e3e3e3;
 }
+
+.empty-seat {
+  display: inline-block;
+  margin: 0.5em;
+  background-color:#bbb;
+  width: 30px;
+  height: 30px;
+  font-size: 22px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}

@@ -8,7 +8,12 @@ class Customer extends Component {
   render() {
     return (
       <div className="customerContainer">
-        <img className="icon" src={require("../../static/images/icon/contend.png")} alt="contend" />
+        <div className="empty-seat"/>
+        <div className="empty-seat"/>
+        <div className="empty-seat"/>
+        <div className="empty-seat"/>
+
+        {/* <img className="icon" src={require("../../static/images/icon/contend.png")} alt="contend" /> */}
       </div>
     );
   }
