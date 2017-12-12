@@ -4,23 +4,19 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import './game.css';
 
+import Customer from '../customer/customer';
+
 class Game extends Component {
   render() {
     return (
       <div>
         <h1>Game</h1>
-        <img className="icon" src={require("../static/images/icon/contend.png")} alt="contend" />
+        <Customer />
+        
       </div>
     );
   }
 }
-
-// const Home = props => (
-//   <div>
-//     <h1>Game</h1>
-//     <img src={require("../static/images/icon/contend.png")} className={styles.icon} />
-//   </div>
-// )
 
 const mapStateToProps = state => ({
   count: state.counter.count,
