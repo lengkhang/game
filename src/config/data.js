@@ -10,7 +10,7 @@ export default {
       name: 'A',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        '-1': require("../static/images/icon/happy.png"),
+        '-1': require("../static/images/icon/angry.png"),
         '0': require("../static/images/icon/contend.png"),
         '1': require("../static/images/icon/happy.png")
       }
@@ -19,7 +19,7 @@ export default {
       name: 'B',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        '-1': require("../static/images/icon/happy.png"),
+        '-1': require("../static/images/icon/angry.png"),
         '0': require("../static/images/icon/contend.png"),
         '1': require("../static/images/icon/happy.png")
       }
@@ -28,7 +28,7 @@ export default {
       name: 'C',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        '-1': require("../static/images/icon/happy.png"),
+        '-1': require("../static/images/icon/angry.png"),
         '0': require("../static/images/icon/contend.png"),
         '1': require("../static/images/icon/happy.png")
       }

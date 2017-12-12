@@ -16,7 +16,7 @@ class Customer extends Component {
             const avatars = order.customer.avatars;
             const avatarState = avatars[satisfaction];
 
-            return (<img key={index} className="icon" src={avatarState} alt={satisfaction} />)
+            return (<img key={index} className="avatar" src={avatarState} alt={satisfaction} />)
           })
         }
       </div>
