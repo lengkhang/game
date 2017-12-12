@@ -1,5 +1,10 @@
 export default {
-  ingredients: [egg, avacado, mushroom, bread],
+  ingredients: [
+    { id: 'egg' }, 
+    { id: 'avacado'}, 
+    { id: 'mushroom'},
+    { id: 'bread'}
+  ],
   menu: [
     1: {
       ingredients: ['egg', 'bread', 'mushroom'],
