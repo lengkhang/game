@@ -6,8 +6,6 @@ import rootReducer from './modules'
 
 export const history = createHistory()
 
-console.log(data);
-
 const initialState ={};
 const enhancers = []
 const middleware = [
