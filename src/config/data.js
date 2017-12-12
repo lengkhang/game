@@ -9,5 +9,16 @@ export default {
       ingredients: ['avacado', 'bread'],
       image: '...'
     }
-  ]
+  ],
+  customerHappiness: {
+    happy: {
+      image: '...'
+    },
+    contend: {
+      image: '...'
+    },
+    angry: {
+      image: '...'
+    }
+  }
 };
