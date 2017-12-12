@@ -1,6 +1,6 @@
 import sample from 'lodash.sample';
 import find from 'lodash.find';
-import isEqual from 'lodash.isEqual';
+import isEqual from 'lodash.isequal';
 
 import data from '../config/data';
 
@@ -77,7 +77,7 @@ function createGame({ timer, numberOfOrders }) {
         currentOrders,
         perpingOrder,
         timer,
-        score,
+        score
     };
 }
 
