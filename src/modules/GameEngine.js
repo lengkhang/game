@@ -29,6 +29,16 @@ function createOrder(timeCreated) {
     };
 }
 
+function createOrders(count, timeCreated) {
+    let orders = [];
+
+    for(let i = 0; i < count; i++) {
+        orders.push(createOrder, timeCreated)
+    }
+
+    return orders;
+}
+
 function matchOrder (ingredients, orders) {
     return orders.find(item => {
         return isEqual(item.menuItem, ingredients);
@@ -47,6 +57,30 @@ function serveOrder(ingredients, orders) {
 function updateOrder(currentOrders, timer) {
     return currentOrders.map(item => item.served ? createOrder(timer) : item);
 }
+
+function createGame({ timer, numberOfOrders }) {
+
+    const currentOrders = createOrders(numberOfOrders, timer);
+    const servedOrders = [];
+    const perpingOrder = {};
+    const score = 0;
+
+    return {
+        data: {
+            customers: data.customers,
+            menu: data.menu,
+            ingredients: data.ingredients,
+            compliments: data.compliments
+        },
+        numberOfOrders,
+        servedOrders,
+        currentOrders,
+        perpingOrder,
+        timer,
+        score,
+    };
+}
+
 
 
 
