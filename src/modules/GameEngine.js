@@ -2,7 +2,7 @@ import sample from 'lodash.sample';
 import find from 'lodash.find';
 import isEqual from 'lodash.isequal';
 
-import data from '../config/data';
+import data, { CUSTOMER_SATISFACTION } from '../config/data';
 
 function getRandomMenuItem() {
     return sample(data.menu);
@@ -58,6 +58,12 @@ function updateOrder(currentOrders, timer) {
     return currentOrders.map(item => item.served ? createOrder(timer) : item);
 }
 
+function decreaseCustomerSatisfaction(satisfactionLevel) {
+    const minSatisfactionLevel = CUSTOMER_SATISFACTION.ANGRY;
+
+    return (satisfactionLevel > minSatisfactionLevel) ? parseInt(satisfactionLevel)-1 : satisfactionLevel;
+}
+
 export function updateCustomerOrders(currentOrders, currentTime) {
     return currentOrders.map(item => {
         const customerSatisfaction = item.customer.satisfaction;
@@ -65,10 +71,10 @@ export function updateCustomerOrders(currentOrders, currentTime) {
 
         let value = item;
         if (customerStartTime - currentTime >= 5) {
-            const customerData = { ...item.customer, satisfaction: 'happy' };
-            value = { ...item, customer: customerData }
+            const loweredSatisfaction = decreaseCustomerSatisfaction(customerSatisfaction);
 
-            console.log('==> value:', value)
+            const customerData = { ...item.customer, satisfaction: loweredSatisfaction };
+            value = { ...item, customer: customerData }
         }
 
         return value;

@@ -12,7 +12,7 @@ class Customer extends Component {
       <div className="customerContainer">
         {
           currentOrders.map((order, index) => {
-            const satisfaction = order.customer.satisfaction;
+            const satisfaction = order.customer.satisfaction.toString();
             const avatars = order.customer.avatars;
             const avatarState = avatars[satisfaction];
 
