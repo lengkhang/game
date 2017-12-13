@@ -43,5 +43,3 @@ jobs:
         branch: master
         heroku:
           appname: avo-on-toast
-
-
