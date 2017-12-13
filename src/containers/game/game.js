@@ -7,18 +7,22 @@ import './game.css';
 import Header from '../header/header';
 import Customer from '../customer/customer';
 import PrepStation from '../prepStation/prepStation';
-import { addIngredient } from '../../modules/game';
+import { addIngredient, smearIngredients } from '../../modules/game';
 
 class Game extends Component {
   render() {
-    const {addIngredient, ingredients, prepingOrder} = this.props;
+    const { addIngredient, ingredients, prepingOrder, smearIngredients } = this.props;
     return (
       <div>
         <h1>Game</h1>
         <Header />
         <Customer />
         <div className="barTable">Bar table pic?</div>
-        <PrepStation addIngredient={addIngredient} ingredients={ingredients} prepingOrder={prepingOrder} />
+        <PrepStation
+          addIngredient={addIngredient}
+          ingredients={ingredients}
+          prepingOrder={prepingOrder}
+          smearIngredients={smearIngredients} />
       </div>
     );
   }
@@ -34,6 +38,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   addIngredient,
+  smearIngredients,
   // increment,
   // incrementAsync,
   // decrement,

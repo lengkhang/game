@@ -56,19 +56,19 @@ export default {
     { id: 'egg', name: 'egg' },
     { id: 'avocado', name: 'avocado' },
     { id: 'mushroom', name: 'mushroom' },
-    { id: 'toast', name: 'toast' }
+    { id: 'bread', name: 'bread' }
   ],
   menu: {
     m1: {
       id: 1,
       name: 'Avo taost with egg',
-      ingredients: ['egg', 'bread', 'mushroom'],
+      ingredients: ['egg', 'bread', 'avocado'],
       image: '...'
     },
     m2: {
       id: 2,
       name: 'Avo taost with mushroom',
-      ingredients: ['avacado', 'bread', 'mushroom'],
+      ingredients: ['avocado', 'bread', 'mushroom'],
       image: '...'
     }
   },

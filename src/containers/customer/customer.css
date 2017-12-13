@@ -13,6 +13,29 @@
   height: 200px;
 }
 
+.avatar:hover {
+  animation: nudge .4s linear;
+}
+
+.nudge {
+  animation: nudge .4s linear;
+}
+
+@keyframes nudge {
+  
+  0% {
+    transform: rotate(-7deg);
+  }
+  
+  33% {
+    transform: rotate(7deg);
+  }
+  
+  66% {
+    transform: rotate(-7deg);
+  }
+}
+
 .orderMenu {
   text-align: center;
   height: 24;

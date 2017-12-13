@@ -4,16 +4,16 @@ import { connect } from 'react-redux'
 import './smear.css';
 
 
-function Smear({ prepingOrder }) {
+function Smear({ prepingOrder, smearIngredients }) {
   return (
     <div className="smearContainer">
       Smear
       <div className="prepContainer">
         {
-          prepingOrder.map(item => <span> {item} </span>)
+          prepingOrder.map((item, index) => <span key={`ingredient-${index}`}> {item} </span>)
         }
       </div>
-      <button className="smearButton">Smear</button>
+      <button className="smearButton" onClick={smearIngredients.bind(this, prepingOrder)}>Smear</button>
     </div>
   );
 }

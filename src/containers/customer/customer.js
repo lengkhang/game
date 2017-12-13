@@ -13,21 +13,24 @@ class Customer extends Component {
         {
           currentOrders.map((order, index) => {
             if (order.customer) {
-              //console.log('==> order:', order)
               const satisfaction = order.customer.satisfaction.toString();
               const avatars = order.customer.avatars;
               const avatarState = avatars[satisfaction];
               const orderItemName = order.menuItem.name;
 
+              console.log('==> order:', order)
+              const isMatched = false;
+              const avatarStyle = "avatar" + (order.served ? " nudge" : "");
+
               return (
                 <div>
                   <div className="orderMenu">{orderItemName}</div>
-                  <img key={index} className="avatar" src={avatarState} alt={satisfaction} />
+                  <img key={`customer-${index}`} className={avatarStyle} src={avatarState} alt={satisfaction} />
                 </div>
               )
             }
 
-            return (<div key={index} className="emptySeat"></div>);
+            return (<div key={`customer-${index}`} className="emptySeat"></div>);
           })
         }
       </div>

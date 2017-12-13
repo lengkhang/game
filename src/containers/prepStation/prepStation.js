@@ -9,11 +9,12 @@ import Smear from './components/smear/smear';
 import Compliment from './components/compliment/compliment';
 
 
-function PrepStation({ addIngredient, ingredients, prepingOrder }) {
+function PrepStation({ addIngredient, ingredients, prepingOrder, smearIngredients }) {
+  console.log('==> smearIngredients:', smearIngredients)
   return (
     <div className="controllerContainer">
       <Ingredients addIngredient={addIngredient} items={ingredients} />
-      <Smear prepingOrder={prepingOrder} />
+      <Smear prepingOrder={prepingOrder} smearIngredients={smearIngredients} />
       <Compliment />
     </div>
   );

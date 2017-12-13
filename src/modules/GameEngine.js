@@ -40,18 +40,34 @@ function createOrders(count, timeCreated) {
 }
 
 function matchOrder(ingredients, orders) {
-    return orders.find(item => {
-        return isEqual(item.menuItem, ingredients);
+    return orders.findIndex(item => {
+        if (item.served) {
+            return false;
+        }
+
+        const requiredIngredients = item.menuItem.ingredients.sort();
+        const prepIngredients = ingredients.sort();
+
+        console.log('==> requiredIngredients:', requiredIngredients)
+        console.log('==> prepIngredients:', prepIngredients)
+        return isEqual(requiredIngredients, prepIngredients);
     });
 }
 
-function serveOrder(ingredients, orders) {
-    const matchedOrder = matchOrder(ingredients, orders);
+export function serveOrder(ingredients, orders) {
+    const matchedOrderIndex = matchOrder(ingredients, orders);
+    console.log('==> matchedOrderIndex:', matchedOrderIndex);
 
-    return {
-        ...matchedOrder,
-        served: !!matchedOrder
-    };
+    return orders.map((item, index) => {
+        if (index === matchedOrderIndex) {
+            return {
+                ...item,
+                served: true
+            };
+        }
+
+        return item;
+    });
 }
 
 function updateOrder(currentOrders, timer) {
@@ -97,7 +113,7 @@ export function updateCustomerOrders(currentOrders, currentTime) {
         //Customer left when they are angry for 10 seconds
         if (customerSatisfaction === CUSTOMER_SATISFACTION.ANGRY &&
             customerDuration >= 10) {
-                value = { emptyStartTime: currentTime };
+            value = { emptyStartTime: currentTime };
         }
         else if (customerDuration >= timeForChangeState) {          //Customer change satisfaction every 5 seconds
             const loweredSatisfaction = decreaseCustomerSatisfaction(customerSatisfaction);
