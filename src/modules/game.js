@@ -4,12 +4,13 @@ import {
   updateCustomerSatisfaction,
   serveOrder
 } from './GameEngine';
+import { INITIAL_START_TIME } from '../config/data';
 
 export const TIME_TICK = 'game/TIME_TICK'
 export const ADD_INGREDIENT = 'game/ADD_INGREDIENT'
 export const MATCH_INGREDIENTS = 'game/MATCH_INGREDIENTS'
 
-const initialState = createGame({ timer: 300, numberOfOrders: 4 });
+const initialState = createGame({ timer: INITIAL_START_TIME, numberOfOrders: 4 });
 
 export const tickAction = (remainingSeconds) => {
   return (dispatch, getState) => {
@@ -39,14 +40,18 @@ export const addIngredient = (ingredient) => {
 export const smearIngredients = (ingredients) => {
   return (dispatch, getState) => {
     const currentState = getState();
+    console.log('==> currentState:', currentState)
     const currentOrders = currentState.game.currentOrders;
     const servedOrders = serveOrder(ingredients, currentOrders, currentState.game.timer);
 
-    dispatch({
-      type: MATCH_INGREDIENTS,
-      currentOrders: servedOrders,
-      prepingOrder: []
-    })
+    if (servedOrders) {
+      dispatch({
+        type: MATCH_INGREDIENTS,
+        currentOrders: servedOrders,
+        prepingOrder: [],
+        score: currentState.game.score + 10
+      })
+    }
   }
 }
 
@@ -81,11 +86,12 @@ export default (state = initialState, action) => {
           action.ingredient
         ]
       }
-    case MATCH_INGREDIENTS: 
+    case MATCH_INGREDIENTS:
       return {
         ...state,
         currentOrders: action.currentOrders,
-        prepingOrder: action.prepingOrder
+        prepingOrder: action.prepingOrder,
+        score: action.score
       }
     default:
       return state;

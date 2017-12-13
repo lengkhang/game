@@ -48,7 +48,7 @@ function matchOrder(ingredients, orders) {
         if (!item.menuItem) {
             return false;
         }
-        
+
         const requiredIngredients = item.menuItem.ingredients.sort();
         const prepIngredients = ingredients.sort();
 
@@ -58,12 +58,12 @@ function matchOrder(ingredients, orders) {
 
 export function serveOrder(ingredients, orders, currentTime) {
     const matchedOrderIndex = matchOrder(ingredients, orders);
+    let hasMatchedOrder = false;
 
-    return orders.map((item, index) => {
+    const updateOrders = orders.map((item, index) => {
         if (index === matchedOrderIndex) {
-
+            hasMatchedOrder = true;
             const customerSatisfaction = item.customer.satisfaction;
-
             const increasedSatisfaction = makeCustomerHappy(customerSatisfaction);
 
             const customerData = {
@@ -81,6 +81,12 @@ export function serveOrder(ingredients, orders, currentTime) {
 
         return item;
     });
+
+    if (hasMatchedOrder) {
+        return updateOrders;
+    }
+
+    return null;
 }
 
 function updateOrder(currentOrders, timer) {

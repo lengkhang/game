@@ -5,6 +5,8 @@ export const CUSTOMER_SATISFACTION = {
   HAPPY: 1
 };
 
+export const INITIAL_START_TIME = 180;
+
 export default {
   customer: {
     A: {
@@ -16,7 +18,7 @@ export default {
         '0': require("../static/images/customer_1/customer1_mood2SVG.svg"),
         '1': require("../static/images/customer_1/customer1_happySVG.svg")
       },
-      lastSatisfactionChangedTime: 300
+      lastSatisfactionChangedTime: INITIAL_START_TIME
     },
     B: {
       name: 'B',
@@ -27,7 +29,7 @@ export default {
         '0': require("../static/images/customer_2/customer2_mood2SVG.svg"),
         '1': require("../static/images/customer_2/customer2_happySVG.svg")
       },
-      lastSatisfactionChangedTime: 300
+      lastSatisfactionChangedTime: INITIAL_START_TIME
     },
     C: {
       name: 'C',
@@ -38,7 +40,7 @@ export default {
         '0': require("../static/images/customer_3/customer3_mood2SVG.svg"),
         '1': require("../static/images/customer_3/customer3_happySVG.svg")
       },
-      lastSatisfactionChangedTime: 300
+      lastSatisfactionChangedTime: INITIAL_START_TIME
     },
     D: {
       name: 'D',
@@ -49,7 +51,7 @@ export default {
         '0': require("../static/images/customer_3/customer3_mood2SVG.svg"),
         '1': require("../static/images/customer_3/customer3_happySVG.svg")
       },
-      lastSatisfactionChangedTime: 300
+      lastSatisfactionChangedTime: INITIAL_START_TIME
     }
   },
   ingredients: [

@@ -10,17 +10,15 @@ class Header extends Component {
   render() {
     return (
       <div className="container">
-        Score:
-        <Timer className="timerStyle"/>
+        Score: {this.props.score}
+        <Timer className="timerStyle" />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  count: state.counter.count,
-  // isIncrementing: state.counter.isIncrementing,
-  // isDecrementing: state.counter.isDecrementing
+  score: state.game.score
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
