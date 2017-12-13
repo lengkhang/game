@@ -9,7 +9,7 @@ export const TIME_TICK = 'game/TIME_TICK'
 export const ADD_INGREDIENT = 'game/ADD_INGREDIENT'
 export const MATCH_INGREDIENTS = 'game/MATCH_INGREDIENTS'
 
-const initialState = createGame({ timer: 1, numberOfOrders: 4 });
+const initialState = createGame({ timer: 300, numberOfOrders: 4 });
 
 export const tickAction = (remainingSeconds) => {
   return (dispatch, getState) => {
@@ -39,19 +39,13 @@ export const addIngredient = (ingredient) => {
 export const smearIngredients = (ingredients) => {
   return (dispatch, getState) => {
     const currentState = getState();
-
-    // console.log('==> prep orders:', currentState)
-    // console.log('==> smear ingredients:', ingredients)
-
     const currentOrders = currentState.game.currentOrders;
-    // Check if match, if matched then send another event
-    const servedOrders = serveOrder(ingredients, currentOrders);
-    //console.log('==> currentOrders:', currentOrders)
-    //console.log('==> currentState:', currentState)
+    const servedOrders = serveOrder(ingredients, currentOrders, currentState.game.timer);
 
     dispatch({
       type: MATCH_INGREDIENTS,
-      currentOrders: servedOrders
+      currentOrders: servedOrders,
+      prepingOrder: []
     })
   }
 }
@@ -90,7 +84,8 @@ export default (state = initialState, action) => {
     case MATCH_INGREDIENTS: 
       return {
         ...state,
-        currentOrders: action.currentOrders
+        currentOrders: action.currentOrders,
+        prepingOrder: action.prepingOrder
       }
     default:
       return state;

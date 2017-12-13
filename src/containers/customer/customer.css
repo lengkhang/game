@@ -11,10 +11,7 @@
   display: inline-block;
   width: 200px;
   height: 200px;
-}
-
-.avatar:hover {
-  animation: nudge .4s linear;
+  animation: nudge2 .4s linear;
 }
 
 .nudge {
@@ -35,6 +32,22 @@
     transform: rotate(-7deg);
   }
 }
+
+@keyframes nudge2 {
+  
+  0% {
+    transform: rotate(-7deg);
+  }
+  
+  33% {
+    transform: rotate(7deg);
+  }
+  
+  66% {
+    transform: rotate(-7deg);
+  }
+}
+
 
 .orderMenu {
   text-align: center;

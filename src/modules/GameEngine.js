@@ -45,23 +45,36 @@ function matchOrder(ingredients, orders) {
             return false;
         }
 
+        if (!item.menuItem) {
+            return false;
+        }
+        
         const requiredIngredients = item.menuItem.ingredients.sort();
         const prepIngredients = ingredients.sort();
 
-        console.log('==> requiredIngredients:', requiredIngredients)
-        console.log('==> prepIngredients:', prepIngredients)
         return isEqual(requiredIngredients, prepIngredients);
     });
 }
 
-export function serveOrder(ingredients, orders) {
+export function serveOrder(ingredients, orders, currentTime) {
     const matchedOrderIndex = matchOrder(ingredients, orders);
-    console.log('==> matchedOrderIndex:', matchedOrderIndex);
 
     return orders.map((item, index) => {
         if (index === matchedOrderIndex) {
+
+            const customerSatisfaction = item.customer.satisfaction;
+
+            const increasedSatisfaction = makeCustomerHappy(customerSatisfaction);
+
+            const customerData = {
+                ...item.customer,
+                satisfaction: increasedSatisfaction,
+                lastSatisfactionChangedTime: currentTime
+            };
+
             return {
                 ...item,
+                customer: customerData,
                 served: true
             };
         }
@@ -113,6 +126,10 @@ export function updateCustomerOrders(currentOrders, currentTime) {
         //Customer left when they are angry for 10 seconds
         if (customerSatisfaction === CUSTOMER_SATISFACTION.ANGRY &&
             customerDuration >= 10) {
+            value = { emptyStartTime: currentTime };
+        }
+        else if (item.served && customerDuration >= 3) {
+            //If eat for 3 seconds, then leave
             value = { emptyStartTime: currentTime };
         }
         else if (customerDuration >= timeForChangeState) {          //Customer change satisfaction every 5 seconds

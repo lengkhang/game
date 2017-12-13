@@ -18,7 +18,6 @@ class Customer extends Component {
               const avatarState = avatars[satisfaction];
               const orderItemName = order.menuItem.name;
 
-              console.log('==> order:', order)
               const isMatched = false;
               const avatarStyle = "avatar" + (order.served ? " nudge" : "");
 
