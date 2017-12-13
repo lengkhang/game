@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import './timer.css';
 
-import {tickAction} from '../../../../modules/game';
+import { tickAction } from '../../../../modules/game';
 
 class Timer extends Component {
   constructor(props) {
@@ -41,14 +41,15 @@ class Timer extends Component {
   }
 
   render() {
+    const { className } = this.props;
     const currentTime = this.state.secondsRemaining;
     const minutes = Math.floor(currentTime / 60);
     const seconds = currentTime - minutes * 60;
 
-    const time = this.strPadLeft(minutes,'0',2)+':' + this.strPadLeft(seconds,'0',2);
+    const time = this.strPadLeft(minutes, '0', 2) + ':' + this.strPadLeft(seconds, '0', 2);
 
     return (
-      <div>Seconds Remaining: {time}</div>
+      <div className={className}>Seconds Remaining: {time}</div>
     );
   }
 }

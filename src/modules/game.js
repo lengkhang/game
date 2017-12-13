@@ -11,9 +11,7 @@ const initialState = createGame({ timer: 300, numberOfOrders: 4 });
 export const tickAction = (remainingSeconds) => {
   return (dispatch, getState) => {
     const currentState = getState();
-    console.log('==> currentState:', currentState)
 
-    //If customer satisfaction changed, update customer obj?
     const currentOrders = updateCustomerOrders(currentState.game.currentOrders, remainingSeconds)
 
     dispatch({
@@ -26,7 +24,6 @@ export const tickAction = (remainingSeconds) => {
 export default (state = initialState, action) => {
   switch (action.type) {
     case TIME_TICK:
-    console.log('==> action:', action)
       return {
         ...state,
         currentOrders: action.currentOrders

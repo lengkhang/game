@@ -1,0 +1,14 @@
+.smearContainer {
+  border: 1px solid #e3e3e3;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.prepContainer {
+  flex: 1;
+}
+
+.smearButton {
+  margin: 10px;
+}

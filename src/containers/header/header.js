@@ -11,7 +11,7 @@ class Header extends Component {
     return (
       <div className="container">
         Score:
-        <Timer/>
+        <Timer className="timerStyle"/>
       </div>
     );
   }

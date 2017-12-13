@@ -17,6 +17,7 @@ class Game extends Component {
         <h1>Game</h1>
         <Header />
         <Customer />
+        <div className="barTable">Bar table pic?</div>
         <PrepStation />
       </div>
     );

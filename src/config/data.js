@@ -1,7 +1,7 @@
-const CUSTOMER_SATISFACTION = {
-  CONTEND: 'contend',
-  HAPPY: 'happy',
-  ANGRY: 'angry'
+export const CUSTOMER_SATISFACTION = {
+  ANGRY: -1,
+  CONTEND: 0,
+  HAPPY: 1
 };
 
 export default {
@@ -10,33 +10,33 @@ export default {
       name: 'A',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        'contend': require("../static/images/icon/contend.png"),
-        'happy': require("../static/images/icon/happy.png"),
-        'angry': require("../static/images/icon/contend.png")
+        '-1': require("../static/images/icon/angry.png"),
+        '0': require("../static/images/icon/contend.png"),
+        '1': require("../static/images/icon/happy.png")
       }
     },
     B: {
       name: 'B',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        'contend': require("../static/images/icon/contend.png"),
-        'happy': require("../static/images/icon/happy.png"),
-        'angry': require("../static/images/icon/contend.png")
+        '-1': require("../static/images/icon/angry.png"),
+        '0': require("../static/images/icon/contend.png"),
+        '1': require("../static/images/icon/happy.png")
       }
     },
     C: {
       name: 'C',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        'contend': require("../static/images/icon/contend.png"),
-        'happy': require("../static/images/icon/happy.png"),
-        'angry': require("../static/images/icon/contend.png")
+        '-1': require("../static/images/icon/angry.png"),
+        '0': require("../static/images/icon/contend.png"),
+        '1': require("../static/images/icon/happy.png")
       }
     }
   },
   ingredients: [
     { id: 'egg', name: 'egg' },
-    { id: 'avacado', name: 'avacado' },
+    { id: 'avocado', name: 'avocado' },
     { id: 'mushroom', name: 'mushroom' },
     { id: 'toast', name: 'toast' }
   ],
