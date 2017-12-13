@@ -2,8 +2,9 @@
   /* background-image: url('../../static/images/icon/kitchen.svg');
   background-size:cover; */
   display: flex;
+  height: 180px;
 }
 
 .prepStation {
-  background: url('../../static/images/icon/kitchen.svg') no-repeat center center;
+  /* background: url('../../static/images/icon/kitchen.svg') no-repeat center center; */
 }

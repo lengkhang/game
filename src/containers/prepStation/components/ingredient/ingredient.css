@@ -1,5 +1,7 @@
 .ingredient {
-  width: 45px;
-  height: 45px;
-  font-size: 10px;
+  width: 70px;
+  height: 40px;
+  margin-right: 12px;
+  margin-left: 40px;
+  margin-top: -27px;
 }

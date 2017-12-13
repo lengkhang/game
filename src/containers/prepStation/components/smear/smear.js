@@ -12,7 +12,6 @@ function getImageBasedOnId(id) {
 function Smear({ prepingOrder, smearIngredients, clearPrep }) {
   return (
     <div className="smearContainer">
-      Smear
       <div className="prepContainer">
         {
           prepingOrder.map((item, index) =>

@@ -15,15 +15,16 @@ class Game extends Component {
 
     return (
       <div className="gameContainer">
-        <Header />
-        <h1>&nbsp;</h1>        
-        <Customer />
-        <PrepStation
-          addIngredient={addIngredient}
-          ingredients={ingredients}
-          prepingOrder={prepingOrder}
-          smearIngredients={smearIngredients}
-          clearPrep={clearPrep} />
+        <div className="prepStationContainer">
+          <Header />
+          <Customer />
+          <PrepStation
+            addIngredient={addIngredient}
+            ingredients={ingredients}
+            prepingOrder={prepingOrder}
+            smearIngredients={smearIngredients}
+            clearPrep={clearPrep} />
+        </div>
       </div>
     );
   }

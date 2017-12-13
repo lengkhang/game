@@ -16,6 +16,14 @@
 .gameContainer {
   background-image: url('../../static/images/icon/background.svg');
   background-repeat: no-repeat;
-  background-size: auto;
-  width: 790px;
+  background-size: 800px 460px;
+  width: 800px;
+}
+
+.prepStationContainer {
+  background-image: url('../../static/images/icon/kitchen.svg');
+  background-repeat: no-repeat;
+  background-size: 800px 430px;
+  /* background-size: auto;
+  width: 790px; */
 }

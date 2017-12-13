@@ -56,9 +56,9 @@ export default {
   },
   ingredients: [
     { id: 'egg', name: 'egg', image: require("../static/images/icon/egg.svg") },
-    { id: 'avocado', name: 'avocado', image: require("../static/images/icon/avo.svg") },
+    { id: 'bread', name: 'bread', image: require("../static/images/icon/toast.svg") },
     { id: 'mushroom', name: 'mushroom', image: require("../static/images/icon/mushroom.svg") },
-    { id: 'bread', name: 'bread', image: require("../static/images/icon/toast.svg") }
+    { id: 'avocado', name: 'avocado', image: require("../static/images/icon/avo.svg") }
   ],
   menu: {
     m1: {
