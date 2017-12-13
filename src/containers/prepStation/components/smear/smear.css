@@ -1,11 +1,13 @@
 .smearContainer {
   width: 30%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .prepContainer {
   flex: 1;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .smearButton {
@@ -17,6 +19,15 @@
 }
 
 .prepIngredient {
-  width: 45px;
+  width: 50px;
   height: 80px;
+  margin-bottom: -35px;
+}
+
+.smearActionContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }

@@ -19,8 +19,10 @@ function Smear({ prepingOrder, smearIngredients, clearPrep }) {
               src={getImageBasedOnId(item)} alt={item} />)
         }
       </div>
-      <button className="smearButton" onClick={smearIngredients.bind(this, prepingOrder)}>Smear</button>
-      <button className="clearButton" onClick={clearPrep.bind(this)}>Clear</button>
+      <div className="smearActionContainer">
+        <button className="smearButton" onClick={smearIngredients.bind(this, prepingOrder)}>Smear</button>
+        <button className="clearButton" onClick={clearPrep.bind(this)}>Clear</button>
+      </div>
     </div>
   );
 }
