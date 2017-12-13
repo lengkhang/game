@@ -36,13 +36,12 @@ jobs:
       # run tests!
       - run: npm test
 
-      - run: npm run-script build
-
   deploy-job:
     docker:
       - image: circleci/node:8.0.0
     working_directory: /build/  
     steps:
+      - run: npm run-script build
       - run:
           name: Run setup script
           command: bash .circleci/setup-heroku.sh
