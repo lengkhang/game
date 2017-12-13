@@ -90,7 +90,7 @@ export function updateCustomerOrders(currentOrders, currentTime) {
 export function createGame({ timer, numberOfOrders }) {
     const currentOrders = createOrders(numberOfOrders, timer);
     const servedOrders = [];
-    const perpingOrder = {};
+    const prepingOrder = [];
     const score = 0;
 
     return {
@@ -103,7 +103,7 @@ export function createGame({ timer, numberOfOrders }) {
         numberOfOrders,
         servedOrders,
         currentOrders,
-        perpingOrder,
+        prepingOrder,
         timer,
         score
     };

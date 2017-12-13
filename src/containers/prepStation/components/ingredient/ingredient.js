@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import './ingredient.css';
 
-
-function Ingredient({ name }) {
+function Ingredient({ name, id, addIngredient }) {
   return (
-    <div className="ingredient">
+    <div onClick={addIngredient.bind(this, id)} className="ingredient">
       {name}
     </div>
   );

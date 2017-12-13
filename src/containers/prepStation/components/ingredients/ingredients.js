@@ -3,13 +3,12 @@ import Ingredient from '../ingredient/ingredient';
 
 import './ingredients.css';
 
-function Ingredients({ items }) {
-  console.log(items);
+function Ingredients({ items, addIngredient }) {
   return (
     <div className="ingredients">
       {
         items.map( ({name, id}) => 
-          <Ingredient key={id} name={name} /> 
+          <Ingredient addIngredient={addIngredient} id={id} key={id} name={name} /> 
         )  
       }
     </div>

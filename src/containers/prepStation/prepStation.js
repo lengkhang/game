@@ -8,34 +8,16 @@ import Ingredients from './components/ingredients/ingredients';
 import Smear from './components/smear/smear';
 import Compliment from './components/compliment/compliment';
 
-class PrepStation extends Component {
-  render() {
-    return (
-      <div className="controllerContainer">
-        <Ingredients items={this.props.ingredients} />
-        <Smear />
-        <Compliment />
-      </div>
-    );
-  }
-}
 
-const mapStateToProps = state => ({
-  count: state.counter.count,
-  ingredients: state.game.data.ingredients
-  // isIncrementing: state.counter.isIncrementing,
-  // isDecrementing: state.counter.isDecrementing
-})
+function PrepStation({ addIngredient, ingredients, prepingOrder }) {
+  return (
+    <div className="controllerContainer">
+      <Ingredients addIngredient={addIngredient} items={ingredients} />
+      <Smear prepingOrder={prepingOrder} />
+      <Compliment />
+    </div>
+  );
+};
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  // increment,
-  // incrementAsync,
-  // decrement,
-  // decrementAsync,
-  // changePage: () => push('/about-us')
-}, dispatch)
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PrepStation)
+export default PrepStation;
