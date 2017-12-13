@@ -3,6 +3,17 @@
   line-height: 27px;
 }
 
+h3 {
+  margin-top: 8px;
+  font-family: "Cabin Sketch";
+	/* font-size: 14px; */
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+  line-height: 15.4px;
+  color: White
+}
+
 .icon {
   height: 50px;
   width: 50px;
