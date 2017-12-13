@@ -70,6 +70,12 @@ function increaseCustomerSatisfaction(satisfactionLevel) {
     return (satisfactionLevel < maxSatisfactionLevel) ? parseInt(satisfactionLevel) + 1 : satisfactionLevel;
 }
 
+function makeCustomerHappy(satisfactionLevel) {
+    const maxSatisfactionLevel = CUSTOMER_SATISFACTION.HAPPY;
+
+    return (satisfactionLevel < maxSatisfactionLevel) ? maxSatisfactionLevel : satisfactionLevel;
+}
+
 export function updateCustomerOrders(currentOrders, currentTime) {
     return currentOrders.map(item => {
         if (!item.customer) {
@@ -83,14 +89,14 @@ export function updateCustomerOrders(currentOrders, currentTime) {
 
         const customerSatisfaction = item.customer.satisfaction;
         const customerStartTime = item.customer.lastSatisfactionChangedTime;
-        const timeForChangeState = 2;
+        const timeForChangeState = 5;
 
         let value = item;
         const customerDuration = customerStartTime - currentTime;
 
         //Customer left when they are angry for 10 seconds
         if (customerSatisfaction === CUSTOMER_SATISFACTION.ANGRY &&
-            customerDuration >= 2) {
+            customerDuration >= 10) {
                 value = { emptyStartTime: currentTime };
         }
         else if (customerDuration >= timeForChangeState) {          //Customer change satisfaction every 5 seconds
@@ -139,7 +145,7 @@ export function updateCustomerSatisfaction(currentOrders, currentTime) {
         if (index === firstCustomerIndex) {
             const customerSatisfaction = item.customer.satisfaction;
             const customerStartTime = item.customer.lastSatisfactionChangedTime;
-            const increasedSatisfaction = increaseCustomerSatisfaction(customerSatisfaction);
+            const increasedSatisfaction = makeCustomerHappy(customerSatisfaction);
             const customerData = {
                 ...item.customer,
                 satisfaction: increasedSatisfaction,
