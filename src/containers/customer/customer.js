@@ -13,14 +13,21 @@ class Customer extends Component {
         {
           currentOrders.map((order, index) => {
             if (order.customer) {
+              //console.log('==> order:', order)
               const satisfaction = order.customer.satisfaction.toString();
               const avatars = order.customer.avatars;
               const avatarState = avatars[satisfaction];
+              const orderItemName = order.menuItem.name;
 
-              return (<img key={index} className="avatar" src={avatarState} alt={satisfaction} />)
+              return (
+                <div>
+                  <div className="orderMenu">{orderItemName}</div>
+                  <img key={index} className="avatar" src={avatarState} alt={satisfaction} />
+                </div>
+              )
             }
 
-            return (<div key={index} className="avatar"></div>);
+            return (<div key={index} className="emptySeat"></div>);
           })
         }
       </div>

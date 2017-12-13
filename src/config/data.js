@@ -61,7 +61,7 @@ export default {
   menu: {
     m1: {
       id: 1,
-      name: 'Avo taost with egg"',
+      name: 'Avo taost with egg',
       ingredients: ['egg', 'bread', 'mushroom'],
       image: '...'
     },
