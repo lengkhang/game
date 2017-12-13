@@ -14,7 +14,7 @@ class Game extends Component {
     const { addIngredient, ingredients, prepingOrder, smearIngredients, clearPrep } = this.props;
 
     return (
-      <div>
+      <div className="gameContainer">
         <h1>Game</h1>
         <Header />
         <Customer />
