@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build-job:
+  build:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
@@ -37,34 +37,17 @@ jobs:
       - run: npm test
 
       - run: npm run-script build
-
-  deploy-job:
-    docker:
-      - image: circleci/node:8.0.0
-    working_directory: /build/  
-    steps:
       - run:
           name: Run setup script
           command: bash .circleci/setup-heroku.sh
       - add_ssh_keys:
           fingerprints:
-            - "30:2a:ec:62:30:9e:c4:e7:9d:03:6e:3f:c8:8e:f1:53"
+            - "29:24:ff:33:45:7f:03:a1:e1:06:4b:a3:63:66:1b:fd"
       - run:
           name: Deploy Master to Heroku
           command: |
             git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
             heroku run python manage.py deploy
             heroku restart
-                
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build-job
-      - deploy-job:
-          requires:
-            - build-job
-          filters:
-            branches:
-              only: master
-
+      - run: 
+          command: yes                
