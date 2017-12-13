@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import './smear.css';
 
 
-function Smear({ prepingOrder, smearIngredients }) {
+function Smear({ prepingOrder, smearIngredients, clearPrep }) {
   return (
     <div className="smearContainer">
       Smear
@@ -14,6 +14,7 @@ function Smear({ prepingOrder, smearIngredients }) {
         }
       </div>
       <button className="smearButton" onClick={smearIngredients.bind(this, prepingOrder)}>Smear</button>
+      <button className="clearButton" onClick={clearPrep.bind(this)}>Clear</button>
     </div>
   );
 }
