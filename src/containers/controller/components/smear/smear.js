@@ -8,6 +8,8 @@ class Smear extends Component {
     return (
       <div className="smearContainer">
         Smear
+        <div className="prepContainer">Prep items</div>
+        <button className="smearButton">Smear</button>
       </div>
     );
   }
