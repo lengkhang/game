@@ -1,20 +1,13 @@
 import React, { Component } from 'react'
-// import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import './controller.css';
+import './smear.css';
 
-import Ingredient from './components/ingredient/ingredient';
-import Smear from './components/smear/smear';
-import Compliment from './components/compliment/compliment';
-
-class Controller extends Component {
+class Smear extends Component {
   render() {
     return (
-      <div className="controllerContainer">
-        <Ingredient />
-        <Smear />
-        <Compliment />
+      <div className="smearContainer">
+        Smear
       </div>
     );
   }
@@ -37,4 +30,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Controller)
+)(Smear)
