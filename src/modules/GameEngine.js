@@ -72,12 +72,28 @@ function increaseCustomerSatisfaction(satisfactionLevel) {
 
 export function updateCustomerOrders(currentOrders, currentTime) {
     return currentOrders.map(item => {
+        if (!item.customer) {
+            //If empty for 3 seconds, generate new order
+            if (item.emptyStartTime - currentTime >= 3) {
+                return createOrder(currentTime);
+            }
+
+            return item;
+        }
+
         const customerSatisfaction = item.customer.satisfaction;
-        const customerStartTime = item.customer.lastSatisfactionChangedTime;//item.timeCreated;
+        const customerStartTime = item.customer.lastSatisfactionChangedTime;
         const timeForChangeState = 5;
 
         let value = item;
-        if (customerStartTime - currentTime >= timeForChangeState) {
+        const customerDuration = customerStartTime - currentTime;
+
+        //Customer left when they are angry for 10 seconds
+        if (customerSatisfaction === CUSTOMER_SATISFACTION.ANGRY &&
+            customerDuration >= 10) {
+                value = { emptyStartTime: currentTime };
+        }
+        else if (customerDuration >= timeForChangeState) {          //Customer change satisfaction every 5 seconds
             const loweredSatisfaction = decreaseCustomerSatisfaction(customerSatisfaction);
 
             const customerData = {
@@ -86,9 +102,10 @@ export function updateCustomerOrders(currentOrders, currentTime) {
                 lastSatisfactionChangedTime: currentTime
             };
 
-            value = { ...item, customer: customerData }
-        }
+            const isSatisfactionChanged = loweredSatisfaction !== customerSatisfaction;
 
+            value = { ...item, customer: isSatisfactionChanged ? customerData : item.customer }
+        }
         return value;
     });
 }
@@ -98,6 +115,10 @@ function getMostUnsatisfiedCustomer(currentOrders) {
     let minSatisfactionLevel = 100;
 
     currentOrders.map((order, index) => {
+        if (!order.customer) {
+            return;
+        }
+
         if (order.customer.satisfaction < minSatisfactionLevel) {
             minSatisfactionLevel = order.customer.satisfaction;
             customerIndex = index;

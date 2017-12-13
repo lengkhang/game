@@ -12,11 +12,15 @@ class Customer extends Component {
       <div className="customerContainer">
         {
           currentOrders.map((order, index) => {
-            const satisfaction = order.customer.satisfaction.toString();
-            const avatars = order.customer.avatars;
-            const avatarState = avatars[satisfaction];
+            if (order.customer) {
+              const satisfaction = order.customer.satisfaction.toString();
+              const avatars = order.customer.avatars;
+              const avatarState = avatars[satisfaction];
 
-            return (<img key={index} className="avatar" src={avatarState} alt={satisfaction} />)
+              return (<img key={index} className="avatar" src={avatarState} alt={satisfaction} />)
+            }
+
+            return (<div key={index}>Empty</div>);
           })
         }
       </div>
