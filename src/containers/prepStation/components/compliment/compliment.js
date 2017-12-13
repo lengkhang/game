@@ -3,11 +3,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import './compliment.css';
 
+import { giveCompliment } from '../../../../modules/game';
+
 class Compliment extends Component {
   render() {
     return (
       <div className="complimentContainer">
-        Compliment
+        <button onClick={this.props.giveCompliment.bind(this)} className="complimentButton">Compliment</button>
       </div>
     );
   }
@@ -20,7 +22,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  // increment,
+  giveCompliment
   // incrementAsync,
   // decrement,
   // decrementAsync,

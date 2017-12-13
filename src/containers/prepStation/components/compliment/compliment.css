@@ -1,4 +1,11 @@
 .complimentContainer {
   border: 1px solid #e3e3e3;
   width: 20%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.complimentButton {
+  height: 50px;
 }
