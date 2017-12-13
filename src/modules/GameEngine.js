@@ -87,6 +87,30 @@ export function updateCustomerOrders(currentOrders, currentTime) {
     });
 }
 
+export function updateCustomerSatisfaction(currentOrders, currentTime) {
+    //Update only the first customer whose satisfaction is not at max
+    const maxSatisfactionLevel = CUSTOMER_SATISFACTION.HAPPY;
+
+    const firstCustomerIndex = currentOrders.findIndex(item => item.customer.satisfaction < maxSatisfactionLevel);
+    console.log('==> firstCustomer:', firstCustomerIndex)
+
+    return currentOrders.map((item, index) => {
+        const customer = item.customer;
+        let value = item;
+
+        if (index === firstCustomerIndex) {
+            const customerSatisfaction = item.customer.satisfaction;
+            const increasedSatisfaction = increaseCustomerSatisfaction(customerSatisfaction);
+            const customerData = { ...item.customer, satisfaction: increasedSatisfaction };
+
+            value = { ...item, customer: customerData }
+            console.log('==> value:', value)
+        }
+
+        return value;
+    })
+}
+
 export function createGame({ timer, numberOfOrders }) {
     const currentOrders = createOrders(numberOfOrders, timer);
     const servedOrders = [];

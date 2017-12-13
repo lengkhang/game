@@ -1,4 +1,8 @@
-import { createGame, updateCustomerOrders } from './GameEngine';
+import { 
+  createGame, 
+  updateCustomerOrders, 
+  updateCustomerSatisfaction 
+} from './GameEngine';
 
 export const INIT_GAME_REQUESTED = 'game/INIT_GAME_REQUESTED'
 export const INIT_GAME = 'counter/INIT_GAME'
@@ -13,6 +17,19 @@ export const tickAction = (remainingSeconds) => {
     const currentState = getState();
 
     const currentOrders = updateCustomerOrders(currentState.game.currentOrders, remainingSeconds)
+
+    dispatch({
+      type: TIME_TICK,
+      currentOrders
+    })
+  }
+}
+
+export function giveCompliment() {
+  return (dispatch, getState) => {
+    const currentState = getState();
+
+    const currentOrders = updateCustomerSatisfaction(currentState.game.currentOrders)
 
     dispatch({
       type: TIME_TICK,
