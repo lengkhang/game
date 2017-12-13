@@ -38,8 +38,8 @@ jobs:
 
       - run: npm run-script build
 
-  deployment:
-    prod:
-      branch: master
-      heroku:
-        appname: avo-on-toast
+deployment:
+  prod:
+    branch: master
+    heroku:
+      appname: avo-on-toast
