@@ -35,21 +35,25 @@ export default {
     }
   },
   ingredients: [
-    { id: 'egg' },
-    { id: 'avacado' },
-    { id: 'mushroom' },
-    { id: 'bread' }
+    { id: 'egg', name: 'egg' },
+    { id: 'avacado', name: 'avacado' },
+    { id: 'mushroom', name: 'mushroom' },
+    { id: 'toast', name: 'toast' }
   ],
-  menu: [
-    1: {
+  menu: {
+    m1: {
+      id: 1,
+      name: 'Avo taost with egg"',
       ingredients: ['egg', 'bread', 'mushroom'],
       image: '...'
     },
-    2: {
-      ingredients: ['avacado', 'bread'],
+    m2: {
+      id: 2,
+      name: 'Avo taost with mushroom',
+      ingredients: ['avacado', 'bread', 'mushroom'],
       image: '...'
     }
-  ],
+  },
   customerHappiness: {
     happy: {
       image: '...'

@@ -6,21 +6,18 @@ import './game.css';
 
 import Header from '../header/header';
 import Customer from '../customer/customer';
-import Controller from '../controller/controller';
+import PrepStation from '../prepStation/prepStation';
 
 class Game extends Component {
-  constructor() {
-    super();
-  }
+
 
   render() {
-  
     return (
       <div>
         <h1>Game</h1>
         <Header />
         <Customer />
-        <Controller />
+        <PrepStation />
       </div>
     );
   }

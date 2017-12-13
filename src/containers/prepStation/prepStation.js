@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 // import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import './controller.css';
+import './prepStation.css';
 
-import Ingredient from './components/ingredient/ingredient';
+import Ingredients from './components/ingredients/ingredients';
 
-class Controller extends Component {
+class PrepStation extends Component {
   render() {
     return (
       <div className="container">
         Controller
-        <Ingredient />
+        <Ingredients items={this.props.ingredients} />
       </div>
     );
   }
@@ -19,6 +19,7 @@ class Controller extends Component {
 
 const mapStateToProps = state => ({
   count: state.counter.count,
+  ingredients: state.game.data.ingredients
   // isIncrementing: state.counter.isIncrementing,
   // isDecrementing: state.counter.isDecrementing
 })
@@ -34,4 +35,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Controller)
+)(PrepStation)
