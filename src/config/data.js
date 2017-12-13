@@ -46,19 +46,19 @@ export default {
       name: 'D',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        '-2': require("../static/images/customer_3/customer3_mood4SVG.svg"),
-        '-1': require("../static/images/customer_3/customer3_mood3SVG.svg"),
-        '0': require("../static/images/customer_3/customer3_mood2SVG.svg"),
-        '1': require("../static/images/customer_3/customer3_happySVG.svg")
+        '-2': require("../static/images/customer_4/customer4_mood4SVG.svg"),
+        '-1': require("../static/images/customer_4/customer4_mood3SVG.svg"),
+        '0': require("../static/images/customer_4/customer4_mood2SVG.svg"),
+        '1': require("../static/images/customer_4/customer4_happySVG.svg")
       },
       lastSatisfactionChangedTime: INITIAL_START_TIME
     }
   },
   ingredients: [
     { id: 'egg', name: 'egg', image: require("../static/images/icon/egg.svg") },
-    { id: 'avocado', name: 'avocado' },
-    { id: 'mushroom', name: 'mushroom' },
-    { id: 'bread', name: 'bread' }
+    { id: 'avocado', name: 'avocado', image: require("../static/images/icon/avo.svg") },
+    { id: 'mushroom', name: 'mushroom', image: require("../static/images/icon/mushroom.svg") },
+    { id: 'bread', name: 'bread', image: require("../static/images/icon/toast.svg") }
   ],
   menu: {
     m1: {
