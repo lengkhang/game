@@ -55,7 +55,7 @@ export default {
     }
   },
   ingredients: [
-    { id: 'egg', name: 'egg' },
+    { id: 'egg', name: 'egg', image: require("../static/images/icon/egg.svg") },
     { id: 'avocado', name: 'avocado' },
     { id: 'mushroom', name: 'mushroom' },
     { id: 'bread', name: 'bread' }

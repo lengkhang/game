@@ -10,7 +10,6 @@ import Compliment from './components/compliment/compliment';
 
 
 function PrepStation({ addIngredient, ingredients, prepingOrder, smearIngredients, clearPrep }) {
-  console.log('==> smearIngredients:', smearIngredients)
   return (
     <div className="controllerContainer">
       <Ingredients addIngredient={addIngredient} items={ingredients} />
