@@ -1,5 +1,6 @@
 export const CUSTOMER_SATISFACTION = {
-  ANGRY: -1,
+  ANGRY: -2,
+  WARNING: -1,
   CONTEND: 0,
   HAPPY: 1
 };
@@ -10,9 +11,10 @@ export default {
       name: 'A',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        '-1': require("../static/images/icon/angry.png"),
-        '0': require("../static/images/icon/contend.png"),
-        '1': require("../static/images/icon/happy.png")
+        '-2': require("../static/images/customer_1/customer1_mood4SVG.svg"),
+        '-1': require("../static/images/customer_1/customer1_mood3SVG.svg"),
+        '0': require("../static/images/customer_1/customer1_mood2SVG.svg"),
+        '1': require("../static/images/customer_1/customer1_happySVG.svg")
       },
       lastSatisfactionChangedTime: 300
     },
@@ -20,9 +22,10 @@ export default {
       name: 'B',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        '-1': require("../static/images/icon/angry.png"),
-        '0': require("../static/images/icon/contend.png"),
-        '1': require("../static/images/icon/happy.png")
+        '-2': require("../static/images/customer_2/customer2_mood4SVG.svg"),
+        '-1': require("../static/images/customer_2/customer2_mood3SVG.svg"),
+        '0': require("../static/images/customer_2/customer2_mood2SVG.svg"),
+        '1': require("../static/images/customer_2/customer2_happySVG.svg")
       },
       lastSatisfactionChangedTime: 300
     },
@@ -30,9 +33,21 @@ export default {
       name: 'C',
       satisfaction: CUSTOMER_SATISFACTION.CONTEND,
       avatars: {
-        '-1': require("../static/images/icon/angry.png"),
-        '0': require("../static/images/icon/contend.png"),
-        '1': require("../static/images/icon/happy.png")
+        '-2': require("../static/images/customer_3/customer3_mood4SVG.svg"),
+        '-1': require("../static/images/customer_3/customer3_mood3SVG.svg"),
+        '0': require("../static/images/customer_3/customer3_mood2SVG.svg"),
+        '1': require("../static/images/customer_3/customer3_happySVG.svg")
+      },
+      lastSatisfactionChangedTime: 300
+    },
+    D: {
+      name: 'D',
+      satisfaction: CUSTOMER_SATISFACTION.CONTEND,
+      avatars: {
+        '-2': require("../static/images/customer_3/customer3_mood4SVG.svg"),
+        '-1': require("../static/images/customer_3/customer3_mood3SVG.svg"),
+        '0': require("../static/images/customer_3/customer3_mood2SVG.svg"),
+        '1': require("../static/images/customer_3/customer3_happySVG.svg")
       },
       lastSatisfactionChangedTime: 300
     }

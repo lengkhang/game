@@ -83,14 +83,14 @@ export function updateCustomerOrders(currentOrders, currentTime) {
 
         const customerSatisfaction = item.customer.satisfaction;
         const customerStartTime = item.customer.lastSatisfactionChangedTime;
-        const timeForChangeState = 5;
+        const timeForChangeState = 2;
 
         let value = item;
         const customerDuration = customerStartTime - currentTime;
 
         //Customer left when they are angry for 10 seconds
         if (customerSatisfaction === CUSTOMER_SATISFACTION.ANGRY &&
-            customerDuration >= 10) {
+            customerDuration >= 2) {
                 value = { emptyStartTime: currentTime };
         }
         else if (customerDuration >= timeForChangeState) {          //Customer change satisfaction every 5 seconds

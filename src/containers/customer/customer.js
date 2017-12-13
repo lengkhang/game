@@ -20,7 +20,7 @@ class Customer extends Component {
               return (<img key={index} className="avatar" src={avatarState} alt={satisfaction} />)
             }
 
-            return (<div key={index}>Empty</div>);
+            return (<div key={index} className="avatar"></div>);
           })
         }
       </div>
