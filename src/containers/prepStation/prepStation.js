@@ -11,10 +11,12 @@ import Compliment from './components/compliment/compliment';
 
 function PrepStation({ addIngredient, ingredients, prepingOrder, smearIngredients, clearPrep }) {
   return (
-    <div className="controllerContainer">
-      <Ingredients addIngredient={addIngredient} items={ingredients} />
-      <Smear prepingOrder={prepingOrder} smearIngredients={smearIngredients} clearPrep={clearPrep}/>
-      <Compliment />
+    <div className="prepStation">
+      <div className="controllerContainer">
+        <Ingredients addIngredient={addIngredient} items={ingredients} />
+        <Smear prepingOrder={prepingOrder} smearIngredients={smearIngredients} clearPrep={clearPrep} />
+        <Compliment />
+      </div>
     </div>
   );
 };

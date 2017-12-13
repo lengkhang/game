@@ -1,4 +1,9 @@
 .controllerContainer {
-  border: 1px solid #e3e3e3;
+  /* background-image: url('../../static/images/icon/kitchen.svg');
+  background-size:cover; */
   display: flex;
+}
+
+.prepStation {
+  background: url('../../static/images/icon/kitchen.svg') no-repeat center center;
 }

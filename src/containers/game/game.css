@@ -15,4 +15,7 @@
 
 .gameContainer {
   background-image: url('../../static/images/icon/background.svg');
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 790px;
 }

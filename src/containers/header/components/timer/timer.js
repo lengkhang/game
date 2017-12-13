@@ -49,7 +49,7 @@ class Timer extends Component {
     const time = this.strPadLeft(minutes, '0', 2) + ':' + this.strPadLeft(seconds, '0', 2);
 
     return (
-      <div className={className}>Time remaining: {time}</div>
+      <div className={className}><h3>Time remaining: {time}</h3></div>
     );
   }
 }

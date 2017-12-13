@@ -15,10 +15,9 @@ class Game extends Component {
 
     return (
       <div className="gameContainer">
-        <h1>Game</h1>
         <Header />
+        <h1>&nbsp;</h1>        
         <Customer />
-        <div className="barTable">Bar table pic?</div>
         <PrepStation
           addIngredient={addIngredient}
           ingredients={ingredients}

@@ -10,7 +10,7 @@ class Header extends Component {
   render() {
     return (
       <div className="container">
-        Score: {this.props.score}
+        <h3>Score: {this.props.score}</h3>
         <Timer className="timerStyle" />
       </div>
     );
