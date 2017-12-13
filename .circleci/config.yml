@@ -39,6 +39,8 @@ jobs:
       - run: npm test
 
   deploy-job:
+    docker:
+      - image: circleci/node:8.0.0
     working_directory: /build/  
     steps:
       - run:
