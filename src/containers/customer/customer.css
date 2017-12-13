@@ -1,6 +1,8 @@
 .customerContainer {
   display: flex;
   height: 175px;
+  margin-bottom: 42px;
+  margin-top: -10px;
 }
 
 .avatarContainer {
@@ -12,7 +14,7 @@
   display: inline-block;
   width: 200px;
   height: 150px;
-  animation: nudge2 .4s linear;
+  animation: onEnter .4s linear;
 }
 
 .nudge {
@@ -22,19 +24,19 @@
 @keyframes nudge {
   
   0% {
-    transform: rotate(-7deg);
+    transform: translateY(-10px);
   }
   
   33% {
-    transform: rotate(7deg);
+    transform: translateY(-15px);
   }
   
   66% {
-    transform: rotate(-7deg);
+    transform: translateY(-20px);
   }
 }
 
-@keyframes nudge2 {
+@keyframes onEnter {
   
   0% {
     transform: rotate(-7deg);

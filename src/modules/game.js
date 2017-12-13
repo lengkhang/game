@@ -29,10 +29,16 @@ export const tickAction = (remainingSeconds) => {
 
 export const addIngredient = (ingredient) => {
   return (dispatch, getState) => {
-    dispatch({
-      type: ADD_INGREDIENT,
-      ingredient
-    })
+    const currentState = getState();
+
+    const prepingOrder = currentState.game.prepingOrder;
+    
+    if (prepingOrder.length < 4) {
+      dispatch({
+        type: ADD_INGREDIENT,
+        ingredient
+      })
+    }
   }
 }
 
