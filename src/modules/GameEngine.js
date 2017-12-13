@@ -73,13 +73,19 @@ function increaseCustomerSatisfaction(satisfactionLevel) {
 export function updateCustomerOrders(currentOrders, currentTime) {
     return currentOrders.map(item => {
         const customerSatisfaction = item.customer.satisfaction;
-        const customerStartTime = item.timeCreated;
+        const customerStartTime = item.customer.lastSatisfactionChangedTime;//item.timeCreated;
+        const timeForChangeState = 5;
 
         let value = item;
-        if (customerStartTime - currentTime >= 5) {
+        if (customerStartTime - currentTime >= timeForChangeState) {
             const loweredSatisfaction = decreaseCustomerSatisfaction(customerSatisfaction);
 
-            const customerData = { ...item.customer, satisfaction: loweredSatisfaction };
+            const customerData = {
+                ...item.customer,
+                satisfaction: loweredSatisfaction,
+                lastSatisfactionChangedTime: currentTime
+            };
+
             value = { ...item, customer: customerData }
         }
 
@@ -87,12 +93,23 @@ export function updateCustomerOrders(currentOrders, currentTime) {
     });
 }
 
-export function updateCustomerSatisfaction(currentOrders, currentTime) {
-    //Update only the first customer whose satisfaction is not at max
-    const maxSatisfactionLevel = CUSTOMER_SATISFACTION.HAPPY;
+function getMostUnsatisfiedCustomer(currentOrders) {
+    let customerIndex = 0;
+    let minSatisfactionLevel = 100;
 
-    const firstCustomerIndex = currentOrders.findIndex(item => item.customer.satisfaction < maxSatisfactionLevel);
-    console.log('==> firstCustomer:', firstCustomerIndex)
+    currentOrders.map((order, index) => {
+        if (order.customer.satisfaction < minSatisfactionLevel) {
+            minSatisfactionLevel = order.customer.satisfaction;
+            customerIndex = index;
+        }
+    });
+
+    return customerIndex;
+}
+
+export function updateCustomerSatisfaction(currentOrders, currentTime) {
+    const maxSatisfactionLevel = CUSTOMER_SATISFACTION.HAPPY;
+    const firstCustomerIndex = getMostUnsatisfiedCustomer(currentOrders);
 
     return currentOrders.map((item, index) => {
         const customer = item.customer;
@@ -100,11 +117,15 @@ export function updateCustomerSatisfaction(currentOrders, currentTime) {
 
         if (index === firstCustomerIndex) {
             const customerSatisfaction = item.customer.satisfaction;
+            const customerStartTime = item.customer.lastSatisfactionChangedTime;
             const increasedSatisfaction = increaseCustomerSatisfaction(customerSatisfaction);
-            const customerData = { ...item.customer, satisfaction: increasedSatisfaction };
+            const customerData = {
+                ...item.customer,
+                satisfaction: increasedSatisfaction,
+                lastSatisfactionChangedTime: currentTime
+            };
 
             value = { ...item, customer: customerData }
-            console.log('==> value:', value)
         }
 
         return value;

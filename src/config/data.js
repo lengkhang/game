@@ -13,7 +13,8 @@ export default {
         '-1': require("../static/images/icon/angry.png"),
         '0': require("../static/images/icon/contend.png"),
         '1': require("../static/images/icon/happy.png")
-      }
+      },
+      lastSatisfactionChangedTime: 300
     },
     B: {
       name: 'B',
@@ -22,7 +23,8 @@ export default {
         '-1': require("../static/images/icon/angry.png"),
         '0': require("../static/images/icon/contend.png"),
         '1': require("../static/images/icon/happy.png")
-      }
+      },
+      lastSatisfactionChangedTime: 300
     },
     C: {
       name: 'C',
@@ -31,7 +33,8 @@ export default {
         '-1': require("../static/images/icon/angry.png"),
         '0': require("../static/images/icon/contend.png"),
         '1': require("../static/images/icon/happy.png")
-      }
+      },
+      lastSatisfactionChangedTime: 300
     }
   },
   ingredients: [

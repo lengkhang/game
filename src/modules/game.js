@@ -1,7 +1,7 @@
-import { 
-  createGame, 
-  updateCustomerOrders, 
-  updateCustomerSatisfaction 
+import {
+  createGame,
+  updateCustomerOrders,
+  updateCustomerSatisfaction
 } from './GameEngine';
 
 export const INIT_GAME_REQUESTED = 'game/INIT_GAME_REQUESTED'
@@ -20,7 +20,8 @@ export const tickAction = (remainingSeconds) => {
 
     dispatch({
       type: TIME_TICK,
-      currentOrders
+      currentOrders,
+      remainingSeconds
     })
   }
 }
@@ -29,12 +30,14 @@ export function giveCompliment() {
   return (dispatch, getState) => {
     const currentState = getState();
 
-    const currentOrders = updateCustomerSatisfaction(currentState.game.currentOrders)
+    if (currentState.game.timer) {
+      const currentOrders = updateCustomerSatisfaction(currentState.game.currentOrders, currentState.game.timer)
 
-    dispatch({
-      type: TIME_TICK,
-      currentOrders
-    })
+      dispatch({
+        type: TIME_TICK,
+        currentOrders
+      })
+    }
   }
 }
 
@@ -43,7 +46,8 @@ export default (state = initialState, action) => {
     case TIME_TICK:
       return {
         ...state,
-        currentOrders: action.currentOrders
+        currentOrders: action.currentOrders,
+        timer: action.remainingSeconds
       }
     default:
       return state;
