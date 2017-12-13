@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import React from 'react'
 import './smear.css';
 
 import data from '../../../../config/data';
@@ -19,7 +17,7 @@ function Smear({ prepingOrder, smearIngredients, clearPrep }) {
         {
           prepingOrder.map((item, index) =>
             <img key={`ingredient-${index}`} className="prepIngredient"
-              src={getImageBasedOnId(item)} />)
+              src={getImageBasedOnId(item)} alt={item} />)
         }
       </div>
       <button className="smearButton" onClick={smearIngredients.bind(this, prepingOrder)}>Smear</button>

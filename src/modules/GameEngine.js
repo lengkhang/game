@@ -1,5 +1,4 @@
 import sample from 'lodash.sample';
-import find from 'lodash.find';
 import isEqual from 'lodash.isequal';
 
 import data, { CUSTOMER_SATISFACTION } from '../config/data';
@@ -10,10 +9,6 @@ function getRandomMenuItem() {
 
 function getRandomCutomer() {
     return sample(data.customer);
-}
-
-function getIngredients() {
-    return data.ingredients;
 }
 
 function createOrder(timeCreated) {
@@ -89,20 +84,10 @@ export function serveOrder(ingredients, orders, currentTime) {
     return null;
 }
 
-function updateOrder(currentOrders, timer) {
-    return currentOrders.map(item => item.served ? createOrder(timer) : item);
-}
-
 function decreaseCustomerSatisfaction(satisfactionLevel) {
     const minSatisfactionLevel = CUSTOMER_SATISFACTION.ANGRY;
 
-    return (satisfactionLevel > minSatisfactionLevel) ? parseInt(satisfactionLevel) - 1 : satisfactionLevel;
-}
-
-function increaseCustomerSatisfaction(satisfactionLevel) {
-    const maxSatisfactionLevel = CUSTOMER_SATISFACTION.HAPPY;
-
-    return (satisfactionLevel < maxSatisfactionLevel) ? parseInt(satisfactionLevel) + 1 : satisfactionLevel;
+    return (satisfactionLevel > minSatisfactionLevel) ? parseInt(satisfactionLevel, 10) - 1 : satisfactionLevel;
 }
 
 function makeCustomerHappy(satisfactionLevel) {
@@ -161,29 +146,28 @@ function getMostUnsatisfiedCustomer(currentOrders) {
 
     currentOrders.map((order, index) => {
         if (!order.customer) {
-            return;
+            return null;
         }
 
         if (order.customer.satisfaction < minSatisfactionLevel) {
             minSatisfactionLevel = order.customer.satisfaction;
             customerIndex = index;
         }
+
+        return order;
     });
 
     return customerIndex;
 }
 
 export function updateCustomerSatisfaction(currentOrders, currentTime) {
-    const maxSatisfactionLevel = CUSTOMER_SATISFACTION.HAPPY;
     const firstCustomerIndex = getMostUnsatisfiedCustomer(currentOrders);
 
     return currentOrders.map((item, index) => {
-        const customer = item.customer;
         let value = item;
 
         if (index === firstCustomerIndex) {
-            const customerSatisfaction = item.customer.satisfaction;
-            const customerStartTime = item.customer.lastSatisfactionChangedTime;
+            const customerSatisfaction = item.customer.satisfaction;            
             const increasedSatisfaction = makeCustomerHappy(customerSatisfaction);
             const customerData = {
                 ...item.customer,

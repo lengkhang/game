@@ -29,8 +29,6 @@ export const tickAction = (remainingSeconds) => {
 
 export const addIngredient = (ingredient) => {
   return (dispatch, getState) => {
-    const currentState = getState();
-
     dispatch({
       type: ADD_INGREDIENT,
       ingredient

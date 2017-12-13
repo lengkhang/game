@@ -26,9 +26,7 @@ class Timer extends Component {
     }
   }
 
-  componentDidMount() {
-    const { secondsRemaining } = this.state;
-
+  componentDidMount() {   
     this.interval = setInterval(this.tick.bind(this), 1000);
   }
 
