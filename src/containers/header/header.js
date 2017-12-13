@@ -9,7 +9,7 @@ import Timer from './components/timer/timer';
 class Header extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="headerContainer">
         <h3>Score: {this.props.score}</h3>
         <Timer className="timerStyle" />
       </div>
