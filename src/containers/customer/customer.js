@@ -22,7 +22,8 @@ class Customer extends Component {
 
               return (
                 <div>
-                  <div className="orderMenu">{orderItemName}</div>
+                  <div className="orderMenu">{!order.served && orderItemName}</div>
+
                   <img key={`customer-${index}`} className={avatarStyle} src={avatarState} alt={satisfaction} />
                 </div>
               )

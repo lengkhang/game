@@ -72,7 +72,19 @@ export default {
       name: 'Avo taost with mushroom',
       ingredients: ['avocado', 'bread', 'mushroom'],
       image: '...'
-    }
+    },
+    m3: {
+      id: 1,
+      name: 'Avo taost',
+      ingredients: ['avocado', 'bread'],
+      image: '...'
+    },
+    m4: {
+      id: 1,
+      name: 'Avo taost with egg and mushroom',
+      ingredients: ['avocado', 'bread', 'egg', 'mushroom'],
+      image: '...'
+    },
   },
   customerHappiness: {
     happy: {
