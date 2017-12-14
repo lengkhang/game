@@ -10,12 +10,22 @@
   margin-bottom: 20px;
 }
 
+.smearButton {
+  transition: all .2s ease-in-out;
+}
+
 .smearButton:hover {
-  transform: scale(1.05)
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
+.discardButton {
+  transition: all .2s ease-in-out;
 }
 
 .discardButton:hover {
-  transform: scale(1.05)
+  transform: scale(1.1);
+  transform-origin: center;
 }
 
 .prepIngredient {
