@@ -9,7 +9,9 @@ class Compliment extends Component {
   render() {
     return (
       <div className="complimentContainer">
-        <button onClick={this.props.giveCompliment.bind(this)} className="complimentButton">Compliment</button>
+        <div className="complimentButton" onClick={this.props.giveCompliment.bind(this)}>
+          <img src={require("../../../../static/images/icon/compliment_button.svg")} alt="compliment" />
+        </div>
       </div>
     );
   }
