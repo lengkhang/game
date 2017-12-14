@@ -1,11 +1,15 @@
 .ingredient {
   width: 70px;
-  height: 40px;
-  margin-right: 12px;
+  height: 90px;
   margin-left: 40px;
-  margin-top: -27px;
   cursor: pointer;
   transition: all .2s ease-in-out;
+  overflow: hidden;
+}
+
+.ingredient {
+  position: relative;
+  top: -35px;
 }
 
 .ingredient:hover {
