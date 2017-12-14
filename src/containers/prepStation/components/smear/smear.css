@@ -10,12 +10,12 @@
   margin-bottom: 20px;
 }
 
-.smearButton {
-  margin: 10px;
+.smearButton:hover {
+  transform: scale(1.05)
 }
 
-.clearButton {
-  margin: 10px;
+.discardButton:hover {
+  transform: scale(1.05)
 }
 
 .prepIngredient {
