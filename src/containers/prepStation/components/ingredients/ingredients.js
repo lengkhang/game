@@ -8,7 +8,7 @@ function Ingredients({ items, addIngredient }) {
     <div className="ingredients">
       {
         items.map( ({name, id, image}) => 
-          <Ingredient addIngredient={addIngredient} id={id} key={id} name={name} image={image} /> 
+          <Ingredient onClick={addIngredient} id={id} key={id} name={name} image={image} /> 
         )  
       }
     </div>

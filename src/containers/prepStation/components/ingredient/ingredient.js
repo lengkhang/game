@@ -1,9 +1,9 @@
 import React from 'react'
 import './ingredient.css';
 
-function Ingredient({ name, id, addIngredient, image }) {
+function Ingredient({ name, id, onClick, image }) {
   return (
-    <div onClick={addIngredient.bind(this, id)} className="ingredient">
+    <div onClick={onClick.bind(this, id)} className="ingredient">
       <img src={image} alt={name} />
     </div>
   );

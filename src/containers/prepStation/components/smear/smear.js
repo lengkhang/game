@@ -9,14 +9,14 @@ function getImageBasedOnId(id) {
   return ingredientConfig.find(item => item.id === id).image;
 }
 
-function Smear({ prepingOrder, smearIngredients, clearPrep }) {
+function Smear({ removeIngredient, prepingOrder, smearIngredients, clearPrep }) {
   return (
     <div className="smearContainer">
       <div className="prepContainer">
         {
           prepingOrder.map((item, index) =>
             <img key={`ingredient-${index}`} className="prepIngredient"
-              src={getImageBasedOnId(item)} alt={item} />)
+              src={getImageBasedOnId(item)} onClick={()=>removeIngredient(item.id)} alt={item} />)
         }
       </div>
       <div className="smearActionContainer">

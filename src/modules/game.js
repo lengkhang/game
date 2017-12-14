@@ -9,6 +9,7 @@ import { INITIAL_START_TIME } from '../config/data';
 
 export const TIME_TICK = 'game/TIME_TICK'
 export const ADD_INGREDIENT = 'game/ADD_INGREDIENT'
+export const REMOVE_INGREDIENT = 'game/REMOVE_INGREDIENT'
 export const MATCH_INGREDIENTS = 'game/MATCH_INGREDIENTS'
 export const CLEAR_PREP = 'game/CLEAR_PREP';
 export const INIT_GAME = 'game/INIT_GAME';
@@ -55,6 +56,21 @@ export const addIngredient = (ingredient) => {
     }
   }
 }
+
+export const removeIngredient = (ingredient) => {
+    return (dispatch, getState) => {
+      const currentState = getState();
+  
+      const prepingOrder = currentState.game.prepingOrder;
+      
+      if (prepingOrder.length > 0) {
+        dispatch({
+          type: REMOVE_INGREDIENT,
+          ingredient
+        })
+      }
+    }
+  }
 
 export const smearIngredients = (ingredients) => {
   return (dispatch, getState) => {
@@ -122,6 +138,13 @@ export default (state = initialState, action) => {
         prepingOrder: [
           ...state.prepingOrder,
           action.ingredient
+        ]
+      }
+    case REMOVE_INGREDIENT:
+      return {
+        ...state,
+        prepingOrder: [
+          ...state.prepingOrder.filter(item => item === action.ingredient)
         ]
       }
     case CLEAR_PREP:

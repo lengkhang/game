@@ -6,7 +6,7 @@ import './game.css';
 import Header from '../header/header';
 import Customer from '../customer/customer';
 import PrepStation from '../prepStation/prepStation';
-import { addIngredient, smearIngredients, clearPrep } from '../../modules/game';
+import { removeIngredient, addIngredient, smearIngredients, clearPrep } from '../../modules/game';
 import { Link } from 'react-router-dom'
 
 class Game extends Component {
@@ -26,6 +26,7 @@ class Game extends Component {
             <div className="complimentText"><h3 className="customH3">&nbsp;{compliment}</h3></div>
             <PrepStation
               addIngredient={addIngredient}
+              removeIngredient={removeIngredient}
               ingredients={ingredients}
               prepingOrder={prepingOrder}
               smearIngredients={smearIngredients}
@@ -46,7 +47,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
   addIngredient,
   smearIngredients,
-  clearPrep
+  clearPrep,
+  removeIngredient
 }, dispatch)
 
 export default connect(
