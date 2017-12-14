@@ -1,0 +1,8 @@
+.intro {
+    background-image: url('../../static/images/intro/intro-image.svg');
+    background-repeat: no-repeat;
+    background-size: 800px 460px;
+    width: 800px;
+    height: 460px;
+    cursor: pointer;
+}

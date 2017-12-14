@@ -8,22 +8,29 @@ import Header from '../header/header';
 import Customer from '../customer/customer';
 import PrepStation from '../prepStation/prepStation';
 import { addIngredient, smearIngredients, clearPrep } from '../../modules/game';
+import { Link } from 'react-router-dom'
 
 class Game extends Component {
+
   render() {
     const { addIngredient, ingredients, prepingOrder, smearIngredients, clearPrep } = this.props;
 
     return (
-      <div className="gameContainer">
-        <div className="prepStationContainer">
-          <Header />
-          <Customer />
-          <PrepStation
-            addIngredient={addIngredient}
-            ingredients={ingredients}
-            prepingOrder={prepingOrder}
-            smearIngredients={smearIngredients}
-            clearPrep={clearPrep} />
+      <div>
+        <header>
+          <Link to="/">restart</Link>
+        </header>
+        <div className="gameContainer">
+          <div className="prepStationContainer">
+            <Header />
+            <Customer />
+            <PrepStation
+              addIngredient={addIngredient}
+              ingredients={ingredients}
+              prepingOrder={prepingOrder}
+              smearIngredients={smearIngredients}
+              clearPrep={clearPrep} />
+          </div>
         </div>
       </div>
     );
@@ -31,11 +38,8 @@ class Game extends Component {
 }
 
 const mapStateToProps = state => ({
-  count: state.counter.count,
   ingredients: state.game.data.ingredients,
   prepingOrder: state.game.prepingOrder
-  // isIncrementing: state.counter.isIncrementing,
-  // isDecrementing: state.counter.isDecrementing
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

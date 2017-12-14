@@ -10,8 +10,20 @@ export const TIME_TICK = 'game/TIME_TICK'
 export const ADD_INGREDIENT = 'game/ADD_INGREDIENT'
 export const MATCH_INGREDIENTS = 'game/MATCH_INGREDIENTS'
 export const CLEAR_PREP = 'game/CLEAR_PREP';
+export const INIT_GAME = 'game/INIT_GAME';
 
 const initialState = createGame({ timer: INITIAL_START_TIME, numberOfOrders: 4 });
+
+export const initGame = () => {
+    return (dispatch, getState) => {
+      const initialState = createGame({ timer: INITIAL_START_TIME, numberOfOrders: 4 });
+  
+      dispatch({
+        type: INIT_GAME,
+        initialState
+      })
+    }
+  }
 
 export const tickAction = (remainingSeconds) => {
   return (dispatch, getState) => {
@@ -90,6 +102,10 @@ export function clearPrep() {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case INIT_GAME:
+    return {
+      ...action.initialState
+    }
     case TIME_TICK:
       return {
         ...state,

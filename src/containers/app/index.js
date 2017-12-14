@@ -1,18 +1,15 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import About from '../about'
 import Game from '../game/game';
+import Home from '../home';
 
 const App = () => (
   <div>
-    <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
-    </header>
-
     <main>
-      <Route exact path="/" component={Game} />
-      <Route exact path="/about-us" component={About} />
+    <Route exact path="/" component={Home} />  
+    <Route exact path="/play" component={Game} />
+    <Route exact path="/help" component={About} />
     </main>
   </div>
 )
