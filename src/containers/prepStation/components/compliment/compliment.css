@@ -10,7 +10,8 @@
   width: 150px;
   margin-left: 72px;
   margin-top: 50px;
-  /* transform: rotate(90deg); */
+  cursor: pointer;
+  transition: all .2s ease-in-out;
 }
 
 .complimentButton:hover {

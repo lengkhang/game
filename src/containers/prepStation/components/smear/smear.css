@@ -12,6 +12,7 @@
 
 .smearButton {
   transition: all .2s ease-in-out;
+  cursor: pointer;
 }
 
 .smearButton:hover {
@@ -21,6 +22,7 @@
 
 .discardButton {
   transition: all .2s ease-in-out;
+  cursor: pointer;
 }
 
 .discardButton:hover {
