@@ -11,6 +11,10 @@ function getRandomCutomer() {
     return sample(data.customer);
 }
 
+export function getRandomCompliment() {
+    return sample(data.compliments)
+}
+
 function createOrder(timeCreated) {
     const menuItem = getRandomMenuItem();
     const customer = getRandomCutomer();

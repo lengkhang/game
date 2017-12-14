@@ -11,13 +11,14 @@ import { addIngredient, smearIngredients, clearPrep } from '../../modules/game';
 
 class Game extends Component {
   render() {
-    const { addIngredient, ingredients, prepingOrder, smearIngredients, clearPrep } = this.props;
+    const { addIngredient, ingredients, prepingOrder, smearIngredients, clearPrep, compliment } = this.props;
 
     return (
       <div className="gameContainer">
         <div className="prepStationContainer">
           <Header />
           <Customer />
+          <div className="complimentText"><h3 className="customH3">&nbsp;{compliment}</h3></div>
           <PrepStation
             addIngredient={addIngredient}
             ingredients={ingredients}
@@ -33,7 +34,8 @@ class Game extends Component {
 const mapStateToProps = state => ({
   count: state.counter.count,
   ingredients: state.game.data.ingredients,
-  prepingOrder: state.game.prepingOrder
+  prepingOrder: state.game.prepingOrder,
+  compliment: state.game.compliment
   // isIncrementing: state.counter.isIncrementing,
   // isDecrementing: state.counter.isDecrementing
 })

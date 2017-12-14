@@ -96,5 +96,17 @@ export default {
     angry: {
       image: '...'
     }
-  }
+  },
+  compliments: [
+    'Where did you get your hair done?',
+    'That colour looks so good on you!',
+    'Saw your band last night, awesome gig!',
+    'Hey, it’s my fave customer!',
+    'Lovin’ that outfit on you!',
+    'Your smile is contagious.',
+    'What does that tattoo mean?',
+    'Do I recognise you from Big Brother?',
+    'You don’t need to shower as often as most people.',
+    'Is that your fixie out front?'
+  ]
 };
