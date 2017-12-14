@@ -7,9 +7,7 @@ function Ingredients({ items, addIngredient }) {
   return (
     <div className="ingredients">
       {
-        items.map( ({name, id, image}) => 
-          <Ingredient onClick={addIngredient} id={id} key={id} name={name} image={image} /> 
-        )  
+        items.map( item => <Ingredient key={item.id} onClick={addIngredient} ingredient={item} />)  
       }
     </div>
   );

@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 class Game extends Component {
 
   render() {
-    const { addIngredient, ingredients, prepingOrder, smearIngredients, clearPrep, compliment } = this.props;
+    const { addIngredient, removeIngredient,  ingredients, prepingOrder, smearIngredients, clearPrep, compliment } = this.props;
 
     return (
       <div>

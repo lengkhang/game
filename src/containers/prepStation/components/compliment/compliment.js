@@ -17,21 +17,11 @@ class Compliment extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  count: state.counter.count,
-  // isIncrementing: state.counter.isIncrementing,
-  // isDecrementing: state.counter.isDecrementing
-})
-
 const mapDispatchToProps = dispatch => bindActionCreators({
   giveCompliment
-  // incrementAsync,
-  // decrement,
-  // decrementAsync,
-  // changePage: () => push('/about-us')
 }, dispatch)
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Compliment)

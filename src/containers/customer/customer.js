@@ -23,10 +23,10 @@ class Customer extends Component {
               const avatarStyle = "avatar" + (order.served ? " nudge" : "") + (order.customer.satisfaction === CUSTOMER_SATISFACTION.ANGRY ? " angry" : "");
 
               return (
-                <div className="customerOrderContainer">
+                <div className="customerOrderContainer" key={`customer-${index}`} >
                   <div className="orderMenu">{!order.served && <img src={orderItemImage} alt={orderItemName} />}</div>
 
-                  <img key={`customer-${index}`} className={avatarStyle} src={avatarState} alt={satisfaction} />
+                  <img className={avatarStyle} src={avatarState} alt={satisfaction} />
                 </div>
               )
             }

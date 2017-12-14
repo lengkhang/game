@@ -5,7 +5,7 @@ export const CUSTOMER_SATISFACTION = {
   HAPPY: 1
 };
 
-export const INITIAL_START_TIME = 180;
+export const INITIAL_START_TIME = 60;
 
 export default {
   customer: {

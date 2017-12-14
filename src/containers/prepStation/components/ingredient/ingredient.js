@@ -1,9 +1,11 @@
 import React from 'react'
 import './ingredient.css';
 
-function Ingredient({ name, id, onClick, image }) {
+function Ingredient({ onClick, ingredient, className }) {
+  const  { image, name } = ingredient;
+
   return (
-    <div onClick={onClick.bind(this, id)} className="ingredient">
+    <div onClick={onClick.bind(null, { ...ingredient} )} className={`ingredient ${className || ''}`}>
       <img src={image} alt={name} />
     </div>
   );

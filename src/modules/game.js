@@ -57,27 +57,26 @@ export const addIngredient = (ingredient) => {
   }
 }
 
-export const removeIngredient = (ingredient) => {
+export const removeIngredient = (index) => {
     return (dispatch, getState) => {
-      const currentState = getState();
-  
-      const prepingOrder = currentState.game.prepingOrder;
-      
-      if (prepingOrder.length > 0) {
+
+       const currentState = getState(); 
+       const prepingOrder = currentState.game.prepingOrder;
+     
+       if (prepingOrder.length > 0) {
         dispatch({
           type: REMOVE_INGREDIENT,
-          ingredient
+          index
         })
-      }
+       }
     }
   }
 
 export const smearIngredients = (ingredients) => {
   return (dispatch, getState) => {
     const currentState = getState();
-    console.log('==> currentState:', currentState)
     const currentOrders = currentState.game.currentOrders;
-    const servedOrders = serveOrder(ingredients, currentOrders, currentState.game.timer);
+    const servedOrders = serveOrder(ingredients.map(item => item.id), currentOrders, currentState.game.timer);
 
     if (servedOrders) {
       dispatch({
@@ -141,10 +140,13 @@ export default (state = initialState, action) => {
         ]
       }
     case REMOVE_INGREDIENT:
+      const { index } = action;
+      const ingredients = state.prepingOrder;
+      ingredients.splice(index, 1)
       return {
         ...state,
         prepingOrder: [
-          ...state.prepingOrder.filter(item => item === action.ingredient)
+            ...ingredients
         ]
       }
     case CLEAR_PREP:

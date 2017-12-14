@@ -1,22 +1,20 @@
 import React from 'react'
-import './smear.css';
+import './plate.css';
 
-import data from '../../../../config/data';
+import Ingredient from '../ingredient/ingredient'
 
-function getImageBasedOnId(id) {
-  const ingredientConfig = data.ingredients;
-
-  return ingredientConfig.find(item => item.id === id).image;
-}
-
-function Smear({ removeIngredient, prepingOrder, smearIngredients, clearPrep }) {
+function Plate({ removeIngredient, prepingOrder, smearIngredients, clearPrep }) {
   return (
     <div className="smearContainer">
-      <div className="prepContainer">
+      <div className="plate">
         {
           prepingOrder.map((item, index) =>
-            <img key={`ingredient-${index}`} className="prepIngredient"
-              src={getImageBasedOnId(item)} onClick={()=>removeIngredient(item.id)} alt={item} />)
+            <Ingredient key={`ingredient-${index}`}  
+              className="prepIngredient" 
+              ingredient={item}
+              onClick={removeIngredient.bind(null, index)} 
+              alt={item} />
+            )
         }
       </div>
       <div className="smearActionContainer">
@@ -31,4 +29,4 @@ function Smear({ removeIngredient, prepingOrder, smearIngredients, clearPrep }) 
   );
 }
 
-export default Smear;
+export default Plate;
