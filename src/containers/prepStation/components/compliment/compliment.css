@@ -12,3 +12,7 @@
   margin-top: 50px;
   /* transform: rotate(90deg); */
 }
+
+.complimentButton:hover {
+  transform: scale(1.05)
+}
