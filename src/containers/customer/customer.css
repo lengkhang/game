@@ -73,11 +73,17 @@
 
 .orderMenu {
   text-align: center;
+  width: 80px;
   height: 24px;
+  float: right;
 }
 
 .emptySeat {
   display: inline-block;
   width: 200px;
   height: 150px;
+}
+
+.customerOrderContainer {
+  width: 200px;
 }

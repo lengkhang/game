@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import './customer.css';
@@ -19,12 +18,13 @@ class Customer extends Component {
               const avatars = order.customer.avatars;
               const avatarState = avatars[satisfaction];
               const orderItemName = order.menuItem.name;
+              const orderItemImage = order.menuItem.image;
 
               const avatarStyle = "avatar" + (order.served ? " nudge" : "") + (order.customer.satisfaction === CUSTOMER_SATISFACTION.ANGRY ? " angry" : "");
 
               return (
-                <div>
-                  <div className="orderMenu">{!order.served && orderItemName}</div>
+                <div className="customerOrderContainer">
+                  <div className="orderMenu">{!order.served && <img src={orderItemImage} alt={orderItemName} />}</div>
 
                   <img key={`customer-${index}`} className={avatarStyle} src={avatarState} alt={satisfaction} />
                 </div>

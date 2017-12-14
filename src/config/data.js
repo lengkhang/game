@@ -65,25 +65,25 @@ export default {
       id: 1,
       name: 'Avo taost with egg',
       ingredients: ['egg', 'bread', 'avocado'],
-      image: '...'
+      image: require('../static/images/icon/Avo_Egg_Toast_order.svg')
     },
     m2: {
       id: 2,
       name: 'Avo taost with mushroom',
       ingredients: ['avocado', 'bread', 'mushroom'],
-      image: '...'
+      image: require('../static/images/icon/Avo__Mushroom_Toast_order.svg')
     },
     m3: {
-      id: 1,
+      id: 3,
       name: 'Avo taost',
       ingredients: ['avocado', 'bread'],
-      image: '...'
+      image: require('../static/images/icon/Avo_Toast_order.svg')
     },
     m4: {
-      id: 1,
+      id: 4,
       name: 'Avo taost with egg and mushroom',
       ingredients: ['avocado', 'bread', 'egg', 'mushroom'],
-      image: '...'
+      image: require('../static/images/icon/Avo_Egg__Mushroom_Toast_order.svg')
     },
   },
   customerHappiness: {
