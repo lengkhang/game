@@ -38,3 +38,12 @@ h3 {
   /* background-size: auto;
   width: 790px; */
 }
+
+.complimentText {
+  height: 40px;
+  text-align: center;
+}
+/* 
+.customH3 {
+  margin-top: 0;
+} */

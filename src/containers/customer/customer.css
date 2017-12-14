@@ -1,7 +1,6 @@
 .customerContainer {
   display: flex;
   height: 175px;
-  margin-bottom: 42px;
   margin-top: -10px;
 }
 
@@ -73,11 +72,17 @@
 
 .orderMenu {
   text-align: center;
+  width: 80px;
   height: 24px;
+  float: right;
 }
 
 .emptySeat {
   display: inline-block;
   width: 200px;
   height: 150px;
+}
+
+.customerOrderContainer {
+  width: 200px;
 }

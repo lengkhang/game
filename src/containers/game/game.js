@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import './game.css';
@@ -13,7 +12,7 @@ import { Link } from 'react-router-dom'
 class Game extends Component {
 
   render() {
-    const { addIngredient, ingredients, prepingOrder, smearIngredients, clearPrep } = this.props;
+    const { addIngredient, ingredients, prepingOrder, smearIngredients, clearPrep, compliment } = this.props;
 
     return (
       <div>
@@ -24,6 +23,7 @@ class Game extends Component {
           <div className="prepStationContainer">
             <Header />
             <Customer />
+            <div className="complimentText"><h3 className="customH3">&nbsp;{compliment}</h3></div>
             <PrepStation
               addIngredient={addIngredient}
               ingredients={ingredients}
@@ -39,7 +39,8 @@ class Game extends Component {
 
 const mapStateToProps = state => ({
   ingredients: state.game.data.ingredients,
-  prepingOrder: state.game.prepingOrder
+  prepingOrder: state.game.prepingOrder,
+  compliment: state.game.compliment
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -2,7 +2,8 @@ import {
   createGame,
   updateCustomerOrders,
   updateCustomerSatisfaction,
-  serveOrder
+  serveOrder,
+  getRandomCompliment
 } from './GameEngine';
 import { INITIAL_START_TIME } from '../config/data';
 
@@ -30,11 +31,12 @@ export const tickAction = (remainingSeconds) => {
     const currentState = getState();
 
     const currentOrders = updateCustomerOrders(currentState.game.currentOrders, remainingSeconds)
-
+    
     dispatch({
       type: TIME_TICK,
       currentOrders,
-      remainingSeconds
+      remainingSeconds,
+      compliment: currentState.game.compliment
     })
   }
 }
@@ -81,7 +83,8 @@ export function giveCompliment() {
 
       dispatch({
         type: TIME_TICK,
-        currentOrders
+        currentOrders,
+        compliment: getRandomCompliment()
       })
     }
   }
@@ -110,7 +113,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         currentOrders: action.currentOrders,
-        timer: action.remainingSeconds
+        timer: action.remainingSeconds,
+        compliment: action.compliment
       }
     case ADD_INGREDIENT:
       return {
