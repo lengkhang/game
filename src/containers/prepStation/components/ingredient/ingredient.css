@@ -4,4 +4,12 @@
   margin-right: 12px;
   margin-left: 40px;
   margin-top: -27px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.ingredient:hover {
+  transform: scale(1.1);
+  transform-origin: center;
+  
 }
