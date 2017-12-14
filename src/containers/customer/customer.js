@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import './customer.css';
 
+import {CUSTOMER_SATISFACTION} from "../../config/data";
+
 class Customer extends Component {
   render() {
     const { currentOrders } = this.props;
@@ -18,7 +20,7 @@ class Customer extends Component {
               const avatarState = avatars[satisfaction];
               const orderItemName = order.menuItem.name;
 
-              const avatarStyle = "avatar" + (order.served ? " nudge" : "");
+              const avatarStyle = "avatar" + (order.served ? " nudge" : "") + (order.customer.satisfaction === CUSTOMER_SATISFACTION.ANGRY ? " angry" : "");
 
               return (
                 <div>

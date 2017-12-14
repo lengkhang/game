@@ -21,6 +21,10 @@
   animation: nudge .4s linear;
 }
 
+.angry {
+  animation: angry .4s infinite;
+}
+
 @keyframes nudge {
   
   0% {
@@ -48,6 +52,21 @@
   
   66% {
     transform: rotate(-7deg);
+  }
+}
+
+@keyframes angry {
+  
+  0% {
+    transform: scale(1.01, 1.01);
+  }
+  
+  33% {
+    transform: scale(1.03, 1.03);
+  }
+  
+  66% {
+    transform: scale(1.05, 1.05);
   }
 }
 
