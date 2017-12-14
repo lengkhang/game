@@ -8,5 +8,7 @@
 
 .complimentButton {
   width: 150px;
-  transform: rotate(90deg);
+  margin-left: 72px;
+  margin-top: 50px;
+  /* transform: rotate(90deg); */
 }
