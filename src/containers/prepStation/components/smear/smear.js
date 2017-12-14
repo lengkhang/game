@@ -20,8 +20,12 @@ function Smear({ prepingOrder, smearIngredients, clearPrep }) {
         }
       </div>
       <div className="smearActionContainer">
-        <button className="smearButton" onClick={smearIngredients.bind(this, prepingOrder)}>Smear</button>
-        <button className="clearButton" onClick={clearPrep.bind(this)}>Clear</button>
+        <div onClick={smearIngredients.bind(this, prepingOrder)}>
+          <img src={require("../../../../static/images/icon/smear_button.svg")} alt="smear and serve"/>
+        </div>
+        <div onClick={clearPrep.bind(this)}>
+          <img src={require("../../../../static/images/icon/discard_button.svg")} alt="discard"/>
+        </div>
       </div>
     </div>
   );
